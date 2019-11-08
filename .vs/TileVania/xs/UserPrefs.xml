@@ -1,0 +1,46 @@
+﻿<Properties StartupConfiguration="{E1DDCD11-7E0A-5FDA-26BF-C84E8DE927E2}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ObservedBugs.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Player.cs" Line="173" Column="24" />
+      <File FileName="Assets/Scripts/GameSession.cs" Line="202" Column="51" />
+      <File FileName="Assets/Scripts/Coin.cs" />
+      <File FileName="Assets/Scripts/ScenePersist.cs" />
+      <File FileName="Assets/Scripts/NPC.cs" />
+      <File FileName="Assets/Scripts/Dialogue.cs" />
+      <File FileName="Assets/Scripts/DialogueManager.cs" />
+      <File FileName="Assets/Scripts/KnowledgeByte.cs" Line="13" Column="20" />
+      <File FileName="Assets/Scripts/Flag.cs" Line="22" Column="75" />
+      <File FileName="Assets/Scripts/UIFader.cs" />
+      <File FileName="Assets/Scripts/PopulateQuestGrid.cs" />
+      <File FileName="Assets/Scripts/Quest.cs" />
+      <File FileName="Assets/Scripts/PauseMenu.cs" Line="141" Column="32" />
+      <File FileName="Assets/Scripts/KBUI.cs" Line="61" Column="65" />
+      <File FileName="Assets/Scripts/ObservedBugs.cs" Line="4" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TileVania" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="ObservedBugs.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="TileVania" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ea022d13-a6ed-4be1-a9e8-adc0893a479b" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
