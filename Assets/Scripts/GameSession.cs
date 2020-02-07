@@ -26,6 +26,13 @@ public class GameSession : MonoBehaviour {
     [SerializeField] Animator pauseMenuAnimator;
     [SerializeField] PauseMenu pauseMenu;
 
+    public static int currentLevel = 0;
+    static SceneData currentScene;
+    static List<SceneData> allVisitedScenes;
+    static List<Gate> allVisitedGates;
+
+    public static int[] TotalCheckpointsInDifferentLevels = { 7 };
+
     int continues = 0;
     bool pauseMenuIsUp;
 
@@ -52,6 +59,7 @@ public class GameSession : MonoBehaviour {
         coinsText.text = coins.ToString();
         dialogueManager = FindObjectOfType<DialogueManager>();
         levelCanvas = FindObjectOfType<Canvas>();
+        currentScene = FindObjectOfType<SceneData>();
     }
 
     private void Update()
@@ -62,7 +70,31 @@ public class GameSession : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
+            QuestManager.UpdateQuestFlag("Kill9Bunnies");
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            QuestManager.UpdateQuestFlag("Objective2");
+        }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            QuestManager.UpdateQuestFlag("Objective3");
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
             PauseMenu.IncreaseSideQuestCount();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            QuestManager.UpdateQuestFlag("Quest1");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            QuestManager.UpdateQuestFlag("Quest2");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            QuestManager.UpdateQuestFlag("Quest3");
         }
     }
 
@@ -75,7 +107,8 @@ public class GameSession : MonoBehaviour {
     public void CollectKnowledgeByte(Dialogue dialogue)
     {
         knowledgeBytes++;
-        dialogueManager.StartDialogue(dialogue);
+        FindObjectOfType<InteractibilityIcon>().CloseInteractivityPrompt();
+        dialogueManager.StartDialogue(dialogue, null);
     }
 
     public void ProcessPlayerDeath()
@@ -201,6 +234,7 @@ public class GameSession : MonoBehaviour {
         pauseMenuAnimator.SetBool("Pause", true);
         pauseMenu.OpenPauseMenu(playerLives, coins);
         pauseMenuIsUp = true;
+        pauseMenu.GetComponent<CanvasGroup>().interactable = true;
     }
 
     void Unpause()
@@ -209,6 +243,7 @@ public class GameSession : MonoBehaviour {
         UIFaderAnimator.SetBool("hiding", false);
         pauseMenuAnimator.SetBool("Pause", false);
         pauseMenuIsUp = false;
+        pauseMenu.GetComponent<CanvasGroup>().interactable = false;
     }
 
 }

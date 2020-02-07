@@ -15,10 +15,14 @@ public class KnowledgeByte : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (hasBeenCollected) { return; }
+        print(this + " has been collected");
+        kbui = PauseMenu.GetNextKBUI();
+        QuestManager.UpdateQuestFlag("CollectAllKBs");
+
         hasBeenCollected = true;
         AudioSource.PlayClipAtPoint(coinSound, Camera.main.transform.position);
         FindObjectOfType<GameSession>().CollectKnowledgeByte(trivia);
-        kbui.ToggleCollectionStatus();
+        kbui.ToggleCollectionStatus(trivia);
         Destroy(gameObject);
     }
 }

@@ -97,7 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad28dd949c0414123a2078b3a72c865c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinSound: {fileID: 0}
+  coinSound: {fileID: 8300000, guid: e44e86d4d40fd42ea942853bb6f2ea85, type: 3}
+  trivia:
+    name: 
+    avatar: {fileID: 0}
+    sentences: []
+  kbui: {fileID: 0}
 --- !u!212 &212767241318762816
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class KBUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler{
 
+    [SerializeField] public int order;
+
     static Text nameText;
     static Text knowledgeText;
     static GameObject miniDialogueBox;
@@ -43,9 +45,10 @@ public class KBUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler{
         }
     }
 
-    public void ToggleCollectionStatus()
+    public void ToggleCollectionStatus(Dialogue passedTrivia)
     {
         collected = true;
+        trivia = passedTrivia;
         GetComponent<Image>().color = Color.white;
         PauseMenu.IncreaseKBCount();
     }

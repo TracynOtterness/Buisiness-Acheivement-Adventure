@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Text nameText;
     [SerializeField] Text sentenceText;
     [SerializeField] Image portrait;
+    [SerializeField] QuestPrompt questPrompt;
 
     [SerializeField] float autoNextSentenceTime = 3f;
     [SerializeField] float nextCharacterWaitTime = .5f;
@@ -22,6 +23,8 @@ public class DialogueManager : MonoBehaviour
     Coroutine CR_TypewritterEffect;
     Coroutine CR_AutoNextSentence;
 
+    Quest questToGive;
+
     Animator animator;
 
     private void Awake()
@@ -30,16 +33,18 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, Quest quest)
     {
         if (dialoging) { return; }
         animator.SetBool("ShowDialogue", true);
+
+        questToGive = quest;
         dialoging = true;
 
         nameText.text = dialogue.name;
         portrait.sprite = dialogue.avatar;
 
-        foreach(string sentence in dialogue.sentences)
+        foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
@@ -60,7 +65,7 @@ public class DialogueManager : MonoBehaviour
         {
             StopCoroutine(CR_AutoNextSentence);
         }
-        if(sentences.Count == 0) { EndDialogue(); return; }
+        if (sentences.Count == 0) { EndDialogue(); return; }
         sentenceText.text = "";
         currentSentence = sentences.Dequeue();
         StopAllCoroutines();
@@ -91,13 +96,6 @@ public class DialogueManager : MonoBehaviour
             iterationSentence = iterationSentence.Substring(1);
             yield return new WaitForSeconds(.05f);
         }
-        //legacy loop
-        /*
-        foreach (char c in currentSentence)
-        {
-            sentenceText.text += c;
-            yield return new WaitForSeconds(.05f);
-        }*/ 
         typing = false;
         CR_AutoNextSentence = StartCoroutine(AutoNextSentence());
     }
@@ -109,10 +107,10 @@ public class DialogueManager : MonoBehaviour
         {
             if (iterationSentence[j] == ' ')
             {
-                return j-1;
+                return j - 1;
             }
         }
-        return j-1;
+        return j - 1;
     }
 
     IEnumerator AutoNextSentence()
@@ -126,20 +124,13 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("ShowDialogue", false);
         dialoging = false;
         sentences.Clear();
-        //PromptNearbyNPCs(); replacing w/ animation event
     }
 
-    private void PromptNearbyNPCs()
+    public void GiveQuest()
     {
-        NPC[] npcs;
-        InteractibilityIcon ii = FindObjectOfType<InteractibilityIcon>();
-        npcs = FindObjectsOfType<NPC>();
-        foreach(NPC n in npcs)
+        if (questToGive != null && !QuestManager.activeQuests.Contains(questToGive))
         {
-            if (n.inPlayerRange)
-            {
-                ii.OpenInteractivityPrompt(n);
-            }
+            questPrompt.SetupPrompt(questToGive);
         }
     }
 }

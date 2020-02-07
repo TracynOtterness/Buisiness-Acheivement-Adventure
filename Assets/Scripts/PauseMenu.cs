@@ -20,6 +20,25 @@ public class PauseMenu : MonoBehaviour {
     [SerializeField] Text sideQuestNumberDisplay;
     [SerializeField] Slider sideQuestSlider;
 
+    [Header("Quest requirements")]
+    [SerializeField] GameObject scrollViewContent;
+    [SerializeField] GameObject questDisplayPrefab;
+
+    [SerializeField] Text nameText;
+    [SerializeField] Text descriptionText;
+    [SerializeField] Slider progressBar;
+    [SerializeField] Text questSliderNumberDisplay;
+    [SerializeField] Animator questDisplayAnimator;
+
+    [Header("Minimap Requirements")]
+    [SerializeField] GameObject zoomedOutMinimap;
+    [SerializeField] GameObject zoomedInMinimap;
+
+    [SerializeField] Image screenshotImage;
+    [SerializeField] GameObject FastTravelUIPrefab;
+    [SerializeField] GameObject fastTravelScrollViewContent;
+
+    [Header("Other References")]
     [SerializeField] Text livesText;
     [SerializeField] Text coinsText;
 
@@ -27,6 +46,8 @@ public class PauseMenu : MonoBehaviour {
     static float[] explorationLevelRequirements = { 0f, .25f, .5f, .75f, 1f };
     static int[] sideQuestLevelRequirements = {0, 2, 4, 6, 8 };
 
+    public static KBUI[] kBUIs;
+    static int kBUIsNumber = -1;
     static int currentKBLevel;
     static int currentExplorationLevel;
     static int currentSideQuestLevel;
@@ -38,10 +59,28 @@ public class PauseMenu : MonoBehaviour {
     static int currentCheckpoints;
     static int totalCheckpoints;
 
-	void Start ()
+    static bool minimapIsZoomedIn;
+    static FastTravelLocation selectedFastTravelLocation;
+
+    static PauseMenu pauseMenu;
+
+    private void Awake()
     {
-        AssignKBs();
-        totalCheckpoints = FindObjectsOfType<Flag>().Length;
+        if (pauseMenu == null)
+        {
+            pauseMenu = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    void Start ()
+    {
+        OrderKBs();
+        totalCheckpoints = GameSession.TotalCheckpointsInDifferentLevels[GameSession.currentLevel];
 	}
 
     public void OpenPauseMenu(int lives, int coins)
@@ -50,36 +89,60 @@ public class PauseMenu : MonoBehaviour {
         DisplayExplorationProgress();
         DisplaySideQuestProgress();
         DisplayLivesAndCoins(lives, coins);
+        PopulateQuestGrid();
+        PopulateFastTravelLocations();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-    void AssignKBs()
+    private void PopulateQuestGrid()
     {
-        KBUI[] kbuis = FindObjectsOfType<KBUI>();
-        KnowledgeByte[] kbs = FindObjectsOfType<KnowledgeByte>();
-        if (kbuis.Length == kbs.Length)
+        for (int i = 0; i < QuestManager.activeQuests.Count; i++) //move completed quests to the end of the list so they are added last
         {
-            for (int i = 0; i < kbuis.Length; i++)
+            Quest questToRelocate = QuestManager.activeQuests[i];
+            if (questToRelocate.complete)
             {
-                kbs[i].kbui = kbuis[i];
-                kbuis[i].trivia = kbs[i].trivia;
+                QuestManager.activeQuests.Remove(questToRelocate);
+                QuestManager.activeQuests.Add(questToRelocate);
             }
         }
-        else
+        for (int i = 0; i < QuestManager.activeQuests.Count; i++)
         {
-            if (kbuis.Length > kbs.Length)
+            print(QuestManager.activeQuests[i]);
+            // Create new instances of our prefab until we've created as many as we specified
+            GameObject newObj = Instantiate(questDisplayPrefab, scrollViewContent.transform);
+
+            QuestDisplay qd = newObj.GetComponent<QuestDisplay>();
+            qd.quest = QuestManager.activeQuests[i];
+            qd.objectiveDisplaySlider = progressBar;
+            qd.questDescription = descriptionText;
+            qd.questName = nameText;
+            qd.questNumberDisplay = questSliderNumberDisplay;
+            qd.questDisplayAnimator = questDisplayAnimator;
+        }
+    }
+
+    public void HideQuestInfo()
+    {
+        questDisplayAnimator.SetBool("Display", false);
+    }
+
+    void OrderKBs()
+    {
+        kBUIs = FindObjectsOfType<KBUI>();
+        KBUI temp;
+
+        for(int i = 0; i < kBUIs.Length - 1; i++)
+        {
+            for (int j = i+1; j < kBUIs.Length; j++)
             {
-                print("There are not enough KnowledgeBytes in the scene!");
-            }
-            else
-            {
-                print("There are not enough KnowledgeBytes in the scene!");
+                if (kBUIs[i].order > kBUIs[j].order)
+                {
+                    temp = kBUIs[i];
+                    kBUIs[i] = kBUIs[j];
+                    kBUIs[j] = temp;
+                }
             }
         }
+
     }
 
     private void DisplayExplorationProgress()
@@ -161,9 +224,88 @@ public class PauseMenu : MonoBehaviour {
     public static void IncreaseSideQuestCount()
     {
         currentSideQuestCount++;
+        print(currentSideQuestLevel);
         if (currentSideQuestCount == sideQuestLevelRequirements[currentSideQuestLevel + 1])
         {
             currentSideQuestLevel++;
+        }
+        print(currentSideQuestCount);
+    }
+    public void ResetSideQuestDisplay()
+    {
+        QuestDisplay[] questDisplays = FindObjectsOfType<QuestDisplay>();
+        for (int i = questDisplays.Length; i > 0; i--)
+        {
+            Destroy(questDisplays[i-1].gameObject);
+        }
+    }
+
+    public static KBUI GetNextKBUI()
+    {
+        kBUIsNumber++;
+        return kBUIs[kBUIsNumber];
+    }
+
+    public void ToggleMinimapZoom()
+    {
+        print("ToggleMinimapZoom");
+        if (minimapIsZoomedIn)
+        {
+            zoomedInMinimap.GetComponent<CanvasGroup>().alpha = 0;
+            zoomedInMinimap.GetComponent<CanvasGroup>().interactable = false;
+            zoomedInMinimap.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
+            zoomedOutMinimap.GetComponent<CanvasGroup>().alpha = 1;
+            zoomedOutMinimap.GetComponent<CanvasGroup>().interactable = true;
+            zoomedOutMinimap.GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+            minimapIsZoomedIn = false;
+        }
+        else
+        {
+            zoomedInMinimap.GetComponent<CanvasGroup>().alpha = 1;
+            zoomedInMinimap.GetComponent<CanvasGroup>().interactable = true;
+            zoomedInMinimap.GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+            zoomedOutMinimap.GetComponent<CanvasGroup>().alpha = 0;
+            zoomedOutMinimap.GetComponent<CanvasGroup>().interactable = false;
+            zoomedOutMinimap.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
+            minimapIsZoomedIn = true;
+        }
+    }
+
+    public void SetFastTravelDestination(FastTravelLocation location)
+    {
+        selectedFastTravelLocation = location;
+        screenshotImage.sprite = location.screenshot;
+    }
+
+    public void PopulateFastTravelLocations()
+    {
+        List<FastTravelLocation> allFastTravelLocations = new List<FastTravelLocation>();
+
+        FastTravelUIButton[] oldButtons = FindObjectsOfType<FastTravelUIButton>();
+        for (int i = oldButtons.Length - 1; i >= 0; i--) //destroy old buttons
+        {
+            Destroy(oldButtons[i].gameObject);
+        }
+        foreach(SceneData s in MasterSceneData.allVisitedScenes) //get all FastTravelLocations
+        {
+            foreach(FastTravelLocation f in s.fastTravelLocations)
+            {
+                allFastTravelLocations.Add(f);
+            }
+        }
+
+        foreach(FastTravelLocation f in allFastTravelLocations)
+        {
+            if (f.visited)
+            {
+                GameObject newObj = Instantiate(FastTravelUIPrefab, fastTravelScrollViewContent.transform);
+                newObj.GetComponent<FastTravelUIButton>().location = f;
+                newObj.GetComponent<FastTravelUIButton>().SetName();
+            }
         }
     }
 }

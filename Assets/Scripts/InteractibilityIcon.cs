@@ -32,19 +32,20 @@ public class InteractibilityIcon : MonoBehaviour {
 
     private void Update()
     {
-        if (dialogueManager.dialoging) { ManualNextSentence(); }
+        if (dialogueManager.dialoging) { ManualNextSentence(); return; }
         if (!canInteract) { return; }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (!dialogueManager.dialoging)
-            {
-                dialogueManager.StartDialogue(interactableNPC.dialogue);
-                animator.SetBool("ShowPrompt", false);
-                canInteract = false;
-                interactableNPC = null;
-            }
+            animator.SetBool("ShowPrompt", false);
         }
+    }
 
+    public void StartDialogue()
+    {
+        if(interactableNPC == null) { return; }
+        dialogueManager.StartDialogue(interactableNPC.dialogue, interactableNPC.quest);
+        canInteract = false;
+        interactableNPC = null;
     }
 
     private void ManualNextSentence()
