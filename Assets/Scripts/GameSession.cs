@@ -15,21 +15,22 @@ public class GameSession : MonoBehaviour {
     [SerializeField] Text livesText;
     [SerializeField] Text coinsText;
 
-    [SerializeField] float deathFadeOutScaleFactor = .1f;
+    [SerializeField] float fadeOutScaleFactor;
 
-    [SerializeField] GameObject deathMask;
+    GameObject deathMask;
     [SerializeField] Animator UIFaderAnimator;
-    [SerializeField] SpriteRenderer deathBlack;
-    [SerializeField] Animator gameOverAnimator;
-    [SerializeField] Text gameOverLivesText;
+    SpriteRenderer deathBlack;
+    Animator gameOverAnimator;
+    Text gameOverLivesText;
 
-    [SerializeField] Animator pauseMenuAnimator;
-    [SerializeField] PauseMenu pauseMenu;
+    Animator pauseMenuAnimator;
+    PauseMenu pauseMenu;
 
     public static int currentLevel = 0;
     static SceneData currentScene;
     static List<SceneData> allVisitedScenes;
     static List<Gate> allVisitedGates;
+    [SerializeField] static FastTravelLocation fastTravelLocation;
 
     public static int[] TotalCheckpointsInDifferentLevels = { 7 };
 
@@ -38,7 +39,7 @@ public class GameSession : MonoBehaviour {
 
     Canvas levelCanvas;
     DialogueManager dialogueManager;
-    static GameSession gameSession;
+    public static GameSession gameSession;
 
     private void Awake()
     {
@@ -60,6 +61,14 @@ public class GameSession : MonoBehaviour {
         dialogueManager = FindObjectOfType<DialogueManager>();
         levelCanvas = FindObjectOfType<Canvas>();
         currentScene = FindObjectOfType<SceneData>();
+        pauseMenu = FindObjectOfType<PauseMenu>();
+        pauseMenuAnimator = pauseMenu.GetComponent<Animator>();
+        deathBlack = Camera.main.GetComponentInChildren<SpriteRenderer>();
+        deathMask = FindObjectOfType<Player>().GetComponentInChildren<SpriteMask>().gameObject;
+        gameOverAnimator = GameObject.Find("GameOverMenu").GetComponent<Animator>();
+        gameOverLivesText = GameObject.Find("GameOverLivesText").GetComponent<Text>();
+
+        StartCoroutine(RespawnFadeIn());
     }
 
     private void Update()
@@ -68,6 +77,11 @@ public class GameSession : MonoBehaviour {
         {
             TogglePauseMenu();
         }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            print(fastTravelLocation);
+        }
+        
         if (Input.GetKeyDown(KeyCode.T))
         {
             QuestManager.UpdateQuestFlag("Kill9Bunnies");
@@ -118,11 +132,11 @@ public class GameSession : MonoBehaviour {
         playerLives--;
         if (playerLives >= 0)
         {
-            StartCoroutine(DeathFadeOut(false));
+            StartCoroutine(FadeOut(2));
         }
         else
         {
-            StartCoroutine(DeathFadeOut(true));
+            StartCoroutine(FadeOut(1));
         }
     }
 
@@ -155,25 +169,23 @@ public class GameSession : MonoBehaviour {
         livesText.text = playerLives.ToString();
     }
 
-    IEnumerator DeathFadeOut(bool gameOver)
+    public IEnumerator FadeOut(int scenario)
     {
         print("FadeOut");
         deathBlack.enabled = true;
         while (deathMask.transform.localScale.x > 0)
         {
-            Vector3 newScale = new Vector3(deathMask.transform.localScale.x - deathFadeOutScaleFactor, deathMask.transform.localScale.y - deathFadeOutScaleFactor, deathMask.transform.localScale.z);
+            Vector3 newScale = new Vector3(deathMask.transform.localScale.x - fadeOutScaleFactor * Time.deltaTime, deathMask.transform.localScale.y - fadeOutScaleFactor * Time.deltaTime, deathMask.transform.localScale.z);
             deathMask.transform.localScale = newScale;
             yield return null;
         }
         deathMask.transform.localScale = Vector3.zero;
-        if (gameOver)
+
+        switch (scenario)
         {
-            GameOver();
-        }
-        else
-        {
-            Respawn();
-            print("Respawn from normal death");
+            case 1: GameOver(); break; //Game Over
+            case 2: Respawn(); print("Respawn from normal death"); break; //Normal Death
+            case 3: Warp(); break; //Fast Travel
         }
     }
 
@@ -183,7 +195,7 @@ public class GameSession : MonoBehaviour {
         livesText.text = playerLives.ToString();
         while (deathMask.transform.localScale.x < 2)
         {
-            Vector3 newScale = new Vector3(deathMask.transform.localScale.x + deathFadeOutScaleFactor, deathMask.transform.localScale.y + deathFadeOutScaleFactor, deathMask.transform.localScale.z);
+            Vector3 newScale = new Vector3(deathMask.transform.localScale.x + fadeOutScaleFactor * Time.deltaTime, deathMask.transform.localScale.y + fadeOutScaleFactor * Time.deltaTime, deathMask.transform.localScale.z);
             deathMask.transform.localScale = newScale;
             yield return null;
         }
@@ -237,13 +249,32 @@ public class GameSession : MonoBehaviour {
         pauseMenu.GetComponent<CanvasGroup>().interactable = true;
     }
 
-    void Unpause()
+    public void Unpause()
     {
+        print("unpause");
         Time.timeScale = 1;
         UIFaderAnimator.SetBool("hiding", false);
         pauseMenuAnimator.SetBool("Pause", false);
         pauseMenuIsUp = false;
         pauseMenu.GetComponent<CanvasGroup>().interactable = false;
+    }
+
+
+
+    public static void SetFTL(FastTravelLocation ftl) //triggers FadeOut
+    {
+        fastTravelLocation = ftl;
+    }
+
+    public void HideUI()
+    {
+        UIFaderAnimator.SetBool("hiding", true);
+    }
+    void Warp() //Once faded out, swaps over to new scene.
+    {
+        print("Warp");
+        int sceneToLoad = fastTravelLocation.nativeScene.buildIndex;
+        Vector3 positionToWarpTo = fastTravelLocation.position;
     }
 
 }

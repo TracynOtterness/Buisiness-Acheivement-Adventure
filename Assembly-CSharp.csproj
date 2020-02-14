@@ -125,6 +125,7 @@
     <Compile Include="Assets\Scripts\Dialogue.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\FastTravelButton.cs" />
     <Compile Include="Assets\Scripts\FastTravelLocation.cs" />
     <Compile Include="Assets\Scripts\FastTravelUIButton.cs" />
     <Compile Include="Assets\Scripts\Flag.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="Assets\Scripts\SceneDataHolder.cs" />
     <Compile Include="Assets\Scripts\ScenePersist.cs" />
     <Compile Include="Assets\Scripts\SceneSwitcher.cs" />
+    <Compile Include="Assets\Scripts\ScreenshotImage.cs" />
     <Compile Include="Assets\Scripts\UIFader.cs" />
     <Compile Include="Assets\Scripts\ZoomedOutMinimapButton.cs" />
     <None Include="Assets\2d-extras-master\Assets\Tilemap\Brushes\Tint Brush Smooth\Shaders\TintedTilemap.shader" />

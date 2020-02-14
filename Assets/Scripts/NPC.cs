@@ -12,10 +12,14 @@ public class NPC : MonoBehaviour {
     [SerializeField] public Dialogue dialogue;
     public bool inPlayerRange;
 
+    private void Awake()
+    {
+        quest = GetComponent<Quest>();
+    }
     private void Start()
     {
         interactibilityIcon = FindObjectOfType<InteractibilityIcon>();
-        quest = GetComponent<Quest>();
+        //quest = GetComponent<Quest>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,6 +39,11 @@ public class NPC : MonoBehaviour {
         GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds(.5f);
         GetComponent<BoxCollider2D>().enabled = true;
+    }
+
+    public void SetQuest(Quest passedQuest)
+    {
+        quest = passedQuest;
     }
 
 }

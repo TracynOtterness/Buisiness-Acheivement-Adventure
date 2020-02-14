@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Quest : MonoBehaviour {
 
-    [SerializeField] string[] questRequirementNames;
-    [SerializeField] FlagData[] questRequirementData;
+    [SerializeField] public string[] questRequirementNames;
+    [SerializeField] public FlagData[] questRequirementData;
 
     public Dialogue questInfo; //info about the quest for the pause menu
     public Dictionary<string, FlagData> questRequirements = new Dictionary<string, FlagData>(); //list of flags needed to fulfill the quest, in order
-    public KeyValuePair<string, FlagData> currentObjective;
+    //public KeyValuePair<string, FlagData> currentObjective; I think this is unneeded.
     public bool complete;
 
     public int totalObjectives;

@@ -62,7 +62,7 @@ public class PauseMenu : MonoBehaviour {
     static bool minimapIsZoomedIn;
     static FastTravelLocation selectedFastTravelLocation;
 
-    static PauseMenu pauseMenu;
+    public static PauseMenu pauseMenu;
 
     private void Awake()
     {
@@ -298,10 +298,16 @@ public class PauseMenu : MonoBehaviour {
             }
         }
 
+        bool defaultFTLisSet = false;
         foreach(FastTravelLocation f in allFastTravelLocations)
         {
             if (f.visited)
             {
+                if (!defaultFTLisSet)
+                {
+                    GameSession.SetFTL(f);
+                    defaultFTLisSet = true;
+                }
                 GameObject newObj = Instantiate(FastTravelUIPrefab, fastTravelScrollViewContent.transform);
                 newObj.GetComponent<FastTravelUIButton>().location = f;
                 newObj.GetComponent<FastTravelUIButton>().SetName();

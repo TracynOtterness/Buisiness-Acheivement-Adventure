@@ -8,10 +8,44 @@ public class QuestManager : MonoBehaviour {
     static Dictionary<string, FlagData> questFlags = new Dictionary<string, FlagData>(); //quest flags that exist within the scene
     public static List<Quest> activeQuests = new List<Quest>(); // active quests
 
+    [SerializeField] GameObject questHolder;
+    public static QuestManager questManager;
+
+    private void Awake()
+    {
+        if (questManager == null)
+        {
+            questManager = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     private void Start()
     {
         PopulateQuestFlags();
     }
+
+
+    void StoreQuests(Quest[] quests)
+    {
+        print(quests.Length);
+        for(int i = quests.Length; i > 0; i--)
+        {
+            GameObject newQuestHolder = Instantiate(questHolder, this.transform);
+            Quest questToAdd = newQuestHolder.GetComponent<Quest>();
+            questToAdd.questRequirementNames = quests[i-1].questRequirementNames;
+            questToAdd.questRequirementData = quests[i-1].questRequirementData;
+            questToAdd.questInfo = quests[i-1].questInfo;
+            quests[i - 1].GetComponent<NPC>().SetQuest(questToAdd);
+            Destroy(quests[i-1]);
+        }
+    }
+
+    //populateQuestFlags on scene loaded
 
     private void PopulateQuestFlags()
     {
@@ -23,6 +57,7 @@ public class QuestManager : MonoBehaviour {
                 questFlags.Add(flag.Key, flag.Value);
             }
         }
+        StoreQuests(allQuests);
     }
 
     public static void AddQuest(Quest questToAdd)

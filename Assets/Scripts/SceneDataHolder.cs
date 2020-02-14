@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneDataHolder : MonoBehaviour {
 
@@ -8,6 +9,7 @@ public class SceneDataHolder : MonoBehaviour {
 
     private void Start()
     {
+        data.buildIndex = SceneManager.GetActiveScene().buildIndex;
         Flag[] flags = FindObjectsOfType<Flag>();
         FastTravelLocation[] temp = new FastTravelLocation[GameSession.TotalCheckpointsInDifferentLevels[GameSession.currentLevel]];
         int tempint = 0;

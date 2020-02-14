@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300c9385eb40d42ca880baf1a2d1138c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  location: {fileID: 0}
+  location: {fileID: 11400000, guid: 479aa8bfe975e42f0b1cbfafd253bdec, type: 2}
   text: {fileID: 114278851596385274}
 --- !u!114 &114649780419569496
 MonoBehaviour:
@@ -159,12 +159,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SetFastTravelDestination
-        m_Mode: 2
+      - m_Target: {fileID: 114608072965404514}
+        m_MethodName: PrimeForWarp
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: FastTravelLocation, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
