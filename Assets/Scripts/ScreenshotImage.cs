@@ -6,14 +6,19 @@ using UnityEngine.UI;
 public class ScreenshotImage : MonoBehaviour {
 
     static Image image;
+    public static ScreenshotImage si;
 
-    private void Start()
+    private void Awake()
     {
-        image = GetComponent<Image>();
+        if (si == null)
+        {
+            si = this;
+        }
     }
 
-    public static void SetImage(Sprite newSprite)
+    public void SetImage(Sprite newSprite)
     {
+        image = GetComponent<Image>();
         image.sprite = newSprite;
     }
 }

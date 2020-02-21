@@ -10,12 +10,12 @@ public class FastTravelUIButton : MonoBehaviour {
 
     public void SetName()
     {
-        text.text = location.name;
+        text.text = location.locationName;
     }
 
     public void PrimeForWarp()
     {
         GameSession.SetFTL(location);
-        ScreenshotImage.SetImage(location.screenshot);
+        ScreenshotImage.si.SetImage(location.screenshot);
     }
 }

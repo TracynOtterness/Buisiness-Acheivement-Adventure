@@ -12,8 +12,10 @@ public class FastTravelButton : MonoBehaviour {
     public void TriggerWarp()
     {
         print("h");
+        GameObject.Find("Warp Icon").GetComponent<Animator>().SetBool("Hiding", true);
         gs.Unpause();
         gs.HideUI();
+        gs.StopCoroutines();
         gs.StartCoroutine(gs.FadeOut(3));
     }
 }

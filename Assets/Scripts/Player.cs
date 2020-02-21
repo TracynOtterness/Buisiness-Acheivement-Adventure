@@ -31,7 +31,8 @@ public class Player : MonoBehaviour
 
     //states
     bool isAlive = true;
-    Vector3 spawnPosition;
+    public bool controllable = true;
+    public Vector3 spawnPosition;
 
     //cached component references
     Rigidbody2D myRigidbody;
@@ -42,11 +43,18 @@ public class Player : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         DialogueManager = FindObjectOfType<DialogueManager>();
+
+        print("playerSpawnPosition: " + spawnPosition);
         spawnPosition = transform.position;
     }
     void Update()
     {
-        if (!isAlive) { return; }
+        if (!isAlive || !controllable) { return; }
+        if (!controllable)
+        {
+            myAnimator.SetBool("Running", false);
+            return;
+        }
         Run();
         Drift();
         Jump();
@@ -187,6 +195,12 @@ public class Player : MonoBehaviour
         transform.position = spawnPosition;
         isAlive = true;
         myAnimator.SetTrigger("Respawn");
+    }
+
+    public void SetupSpawnPosition(Vector3 vector)
+    {
+        spawnPosition = vector;
+        transform.position = spawnPosition;
     }
     private void OnCollisionStay2D(Collision2D collision)
     {

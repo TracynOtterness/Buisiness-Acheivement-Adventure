@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Levels/Options.unity
     guid: 2fa1e5d236b6f47af9addeac8c105896
   - enabled: 1
-    path: Assets/Levels/Learn_Movement.unity
+    path: Assets/Levels/Scene Base.unity
+    guid: 7dc46016ebd3045f2a220328c9a4a168
+  - enabled: 1
+    path: Assets/Levels/1-(2,2).unity
     guid: 470deec5bcd484f19a7ec73577609e98
+  - enabled: 1
+    path: Assets/Levels/1-(2,3).unity
+    guid: f8d627cde8e944a19b4de51f3c533fda
   m_configObjects: {}

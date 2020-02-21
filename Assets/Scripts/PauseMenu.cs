@@ -69,11 +69,11 @@ public class PauseMenu : MonoBehaviour {
         if (pauseMenu == null)
         {
             pauseMenu = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject.transform.parent.gameObject);
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 
@@ -160,7 +160,6 @@ public class PauseMenu : MonoBehaviour {
             explorationNumberDisplay.text = currentExplorationPercent.ToString() + "%";
             string currentExplorationBounds = (explorationLevelRequirements[currentExplorationLevel] * 100f).ToString() + "%                 " + (explorationLevelRequirements[currentExplorationLevel + 1] * 100f).ToString() + "%";
             explorationBoundsDisplay.text = currentExplorationBounds;
-            print((currentExplorationPercent / 100 - explorationLevelRequirements[currentExplorationLevel]) / (explorationLevelRequirements[currentExplorationLevel + 1] - explorationLevelRequirements[currentExplorationLevel]));
             explorationSlider.value = (currentExplorationPercent / 100f - explorationLevelRequirements[currentExplorationLevel]) / (explorationLevelRequirements[currentExplorationLevel + 1] - explorationLevelRequirements[currentExplorationLevel]);
         }
     }
@@ -243,6 +242,7 @@ public class PauseMenu : MonoBehaviour {
     public static KBUI GetNextKBUI()
     {
         kBUIsNumber++;
+        print(kBUIsNumber);
         return kBUIs[kBUIsNumber];
     }
 
@@ -314,4 +314,23 @@ public class PauseMenu : MonoBehaviour {
             }
         }
     }
+
+    public void PurgeCollectedKnowledgeBytes()
+    {
+        KnowledgeByte[] kbs = FindObjectsOfType<KnowledgeByte>();
+        if (kBUIs != null)
+        {
+            foreach (KBUI kbui in kBUIs)
+            {
+                for (int i = kbs.Length - 1; i >= 0; i--)
+                {
+                    if (kbui.trivia == kbs[i].trivia)
+                    {
+                        Destroy(kbs[i]);
+                    }
+                }
+            }
+        }
+    }
+
 }

@@ -5,13 +5,15 @@ using UnityEngine;
 public class Coin : MonoBehaviour {
 
     [SerializeField] AudioClip coinSound;
-    //bool hasBeenTriggered = false; unneccesary?
+    [Range(0f, 1f)]
+    [SerializeField] float volume;
+    [SerializeField] GameObject cosaPrefab;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (hasBeenTriggered) { return; }   unneccesary?
-        //hasBeenTriggered = true;   unneccesary?
-        AudioSource.PlayClipAtPoint(coinSound, Camera.main.transform.position);
+        CustomOneShotAudio cosa = Instantiate(cosaPrefab, Camera.main.transform).GetComponent<CustomOneShotAudio>();
+        cosa.PlayAudio(coinSound, volume);
+        //AudioSource.PlayClipAtPoint(coinSound, Camera.main.transform.position, volume);
         FindObjectOfType<GameSession>().CollectCoin();
         Destroy(gameObject);
     }

@@ -7,7 +7,9 @@ public class KnowledgeByte : MonoBehaviour
 
     [SerializeField] AudioClip coinSound;
     [SerializeField] public Dialogue trivia;
-
+    [Range(0f, 1f)]
+    [SerializeField] float volume;
+    [SerializeField] GameObject cosaPrefab;
     public KBUI kbui;
 
     bool hasBeenCollected;
@@ -17,10 +19,10 @@ public class KnowledgeByte : MonoBehaviour
         if (hasBeenCollected) { return; }
         print(this + " has been collected");
         kbui = PauseMenu.GetNextKBUI();
-        QuestManager.UpdateQuestFlag("CollectAllKBs");
 
         hasBeenCollected = true;
-        AudioSource.PlayClipAtPoint(coinSound, Camera.main.transform.position);
+        CustomOneShotAudio cosa = Instantiate(cosaPrefab, Camera.main.transform).GetComponent<CustomOneShotAudio>();
+        cosa.PlayAudio(coinSound, volume);
         FindObjectOfType<GameSession>().CollectKnowledgeByte(trivia);
         kbui.ToggleCollectionStatus(trivia);
         Destroy(gameObject);

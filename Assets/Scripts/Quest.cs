@@ -16,7 +16,7 @@ public class Quest : MonoBehaviour {
     public int totalObjectives;
     public int completedObjectives;
 
-    private void Awake()
+    private void Start()
     {
         totalObjectives = questRequirementNames.Length;
         ConstructQuestRequirements();
@@ -32,11 +32,13 @@ public class Quest : MonoBehaviour {
 
     public void CheckIfComplete()
     {
+        print("checkifcomplete");
         completedObjectives = 0;
         foreach(KeyValuePair<string, FlagData> objective in questRequirements)
         {
             if (objective.Value.isChecked)
             {
+                print("completedObjectives up");
                 completedObjectives++;
             }
         }

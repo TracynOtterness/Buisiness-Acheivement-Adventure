@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gate : MonoBehaviour {
+[CreateAssetMenu(menuName = "Gate")]
+public class Gate : ScriptableObject {
 
-    [SerializeField] public FastTravelLocation[] portals;
+    [SerializeField] public FastTravelLocation[] ftls;
     public SceneData[] scenes;
 
     private void Awake()
     {
-        scenes = new SceneData[2] { portals[0].nativeScene, portals[1].nativeScene };
+        scenes = new SceneData[2] { ftls[0].nativeScene, ftls[1].nativeScene };
     }
 
 }

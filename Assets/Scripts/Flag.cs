@@ -9,17 +9,26 @@ public class Flag : MonoBehaviour {
     [SerializeField] GameObject particleEffect;
     [SerializeField] AudioClip soundEffect;
     [SerializeField] public FastTravelLocation location;
-    AudioSource audioSource;
+    [Range(0f, 1f)]
+    [SerializeField] float volume;
+    [SerializeField] GameObject cosaPrefab;
 
     private void Awake()
     {
         location.position = gameObject.transform.position;
         location.nativeScene = FindObjectOfType<SceneDataHolder>().data;
-        location.visited = false;
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
     }
 
+    private void Start()
+    {
+        if (location.visited) //show checkpoint as passed if warping back
+        {
+            passed = true;
+            animator.SetBool("passed", true);
+            FindObjectOfType<Player>().SetCheckpoint(transform.position);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (passed) { return; }
@@ -28,10 +37,10 @@ public class Flag : MonoBehaviour {
         location.visited = true;
         animator.SetBool("passed", true);
         PauseMenu.IncreaseCheckpointCount();
-        print(collision.gameObject);
         collision.gameObject.GetComponent<Player>().SetCheckpoint(transform.position);
         GameObject particle = Instantiate(particleEffect, this.transform.position, Quaternion.identity);
-        Camera.main.gameObject.GetComponent<AudioSource>().PlayOneShot(soundEffect, 1f);
+        CustomOneShotAudio cosa = Instantiate(cosaPrefab, Camera.main.transform).GetComponent<CustomOneShotAudio>();
+        cosa.PlayAudio(soundEffect, volume);
         StartCoroutine(CleanUpParticles(particle));
     }
 

@@ -1,28 +1,28 @@
 ﻿<Properties StartupConfiguration="{E1DDCD11-7E0A-5FDA-26BF-C84E8DE927E2}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/InteractibilityIcon.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/QuestDisplay.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="175" Column="53" />
-      <File FileName="Assets/Scripts/GameSession.cs" Line="112" Column="10" />
-      <File FileName="Assets/Scripts/Flag.cs" Line="18" Column="34" />
-      <File FileName="Assets/Scripts/PauseMenu.cs" Line="65" Column="12" />
-      <File FileName="Assets/Scripts/ZoomedOutMinimapButton.cs" />
-      <File FileName="Assets/Scripts/SceneData.cs" Line="11" Column="70" />
-      <File FileName="Assets/Scripts/Gate.cs" Line="7" Column="47" />
-      <File FileName="Assets/Scripts/ObservedBugs.cs" />
-      <File FileName="Assets/Scripts/KBUI.cs" />
-      <File FileName="Assets/Scripts/KnowledgeByte.cs" />
-      <File FileName="Assets/Scripts/MasterSceneData.cs" Line="12" Column="25" />
-      <File FileName="Assets/Scripts/FastTravelLocation.cs" Line="7" Column="1" />
-      <File FileName="Assets/Scripts/SceneDataHolder.cs" Line="12" Column="68" />
-      <File FileName="Assets/Scripts/FastTravelUIButton.cs" Line="19" Column="55" />
-      <File FileName="Assets/Scripts/ScreenshotImage.cs" Line="15" Column="12" />
-      <File FileName="Assets/Scripts/FastTravelButton.cs" Line="17" Column="42" />
-      <File FileName="Assets/Scripts/SceneSwitcher.cs" Line="11" Column="1" />
-      <File FileName="Assets/Scripts/QuestManager.cs" Line="41" Column="48" />
-      <File FileName="Assets/Scripts/Quest.cs" Line="14" Column="21" />
-      <File FileName="Assets/Scripts/NPC.cs" Line="22" Column="34" />
-      <File FileName="Assets/Scripts/InteractibilityIcon.cs" Line="43" Column="22" />
-      <File FileName="Assets/Scripts/DialogueManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player.cs" Line="203" Column="44" />
+      <File FileName="Assets/Scripts/GameSession.cs" Line="78" Column="10" />
+      <File FileName="Assets/Scripts/PauseMenu.cs" Line="284" Column="6" />
+      <File FileName="Assets/Scripts/SceneDataHolder.cs" Line="31" Column="10" />
+      <File FileName="Assets/Scripts/FastTravelUIButton.cs" Line="18" Column="38" />
+      <File FileName="Assets/Scripts/ScreenshotImage.cs" Line="21" Column="39" />
+      <File FileName="Assets/Scripts/FastTravelButton.cs" Line="15" Column="62" />
+      <File FileName="Assets/Scripts/Portal.cs" Line="45" Column="17" />
+      <File FileName="Assets/Scripts/Flag.cs" Line="14" Column="44" />
+      <File FileName="Assets/Scripts/SceneSwitcher.cs" />
+      <File FileName="Assets/Scripts/ScenePersist.cs" />
+      <File FileName="Assets/FastTravelReset.cs" Line="29" Column="35" />
+      <File FileName="Assets/Scripts/FastTravelLocation.cs" Line="8" Column="37" />
+      <File FileName="Assets/Scripts/UIFader.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Coin.cs" Line="14" Column="1" />
+      <File FileName="Assets/Scripts/KnowledgeByte.cs" Line="21" Column="40" />
+      <File FileName="Assets/CustomOneShotAudio.cs" Line="21" Column="6" />
+      <File FileName="Assets/Scripts/KBUI.cs" Line="59" Column="10" />
+      <File FileName="Assets/Scripts/QuestManager.cs" Line="99" Column="16" />
+      <File FileName="Assets/Scripts/Quest.cs" Line="41" Column="37" />
+      <File FileName="Assets/Scripts/QuestDisplay.cs" Line="45" Column="62" />
+      <File FileName="Assets/Scripts/QuestPrompt.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -30,22 +30,17 @@
           <Node name="TileVania" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="InteractibilityIcon.cs" selected="True" />
+                <Node name="QuestDisplay.cs" selected="True" />
               </Node>
             </Node>
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="TileVania" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="238ffce4-b6b6-4ec5-96e5-0a2f0411510a" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2fedd0ff-f2b2-465a-9dc2-d4afd4483361" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

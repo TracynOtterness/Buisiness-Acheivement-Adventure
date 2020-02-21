@@ -37,12 +37,12 @@ public class KBUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler{
 
     private void Start()
     {
-        if(this == referenceSetter)
+        /*if(this == referenceSetter)
         {
             print(nameText);
             print(knowledgeText);
             print(miniDialogueBox);
-        }
+        }*/
     }
 
     public void ToggleCollectionStatus(Dialogue passedTrivia)
@@ -57,7 +57,6 @@ public class KBUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler{
     {
         if (collected)
         {
-            print("OnMouseEnter");
             nameText.text = trivia.name;
             knowledgeText.text = trivia.sentences[0];
             Vector3 targetPosition = new Vector3(transform.position.x + Screen.width / adjustmentValueX, transform.position.y + Screen.height / adjustmentValueY, transform.position.z);
@@ -68,7 +67,6 @@ public class KBUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler{
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        print("OnMouseExit");
         miniDialogueBox.transform.position = new Vector3(Screen.height, Screen.width, 0f);
     }
 }

@@ -28,7 +28,7 @@ public class SceneSwitcher : MonoBehaviour {
         myAnimator = GetComponent<Animator>();
     }
 
-    public void Load(string sceneName)
+    public static void Load(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
@@ -45,6 +45,6 @@ public class SceneSwitcher : MonoBehaviour {
     IEnumerator LoadStartScene()
     {
         yield return new WaitForSecondsRealtime(2f);
-        Load("Learn_Movement");
+        Load("1-(2,2)");
     }
 }

@@ -262,14 +262,8 @@ MonoBehaviour:
   knowledgeBytes: 0
   livesText: {fileID: 114624375574568964}
   coinsText: {fileID: 114262711428474786}
-  deathFadeOutScaleFactor: 0.02
-  deathMask: {fileID: 0}
+  fadeOutScaleFactor: 1.5
   UIFaderAnimator: {fileID: 95613068332523922}
-  deathBlack: {fileID: 0}
-  gameOverAnimator: {fileID: 0}
-  gameOverLivesText: {fileID: 0}
-  pauseMenuAnimator: {fileID: 0}
-  pauseMenu: {fileID: 0}
 --- !u!222 &222507034025295882
 CanvasRenderer:
   m_ObjectHideFlags: 1

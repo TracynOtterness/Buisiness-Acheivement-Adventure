@@ -11,14 +11,23 @@ public class SceneDataHolder : MonoBehaviour {
     {
         data.buildIndex = SceneManager.GetActiveScene().buildIndex;
         Flag[] flags = FindObjectsOfType<Flag>();
-        FastTravelLocation[] temp = new FastTravelLocation[GameSession.TotalCheckpointsInDifferentLevels[GameSession.currentLevel]];
+        Portal[] portals = FindObjectsOfType<Portal>();
+        FastTravelLocation[] temp = new FastTravelLocation[flags.Length + portals.Length];
         int tempint = 0;
         foreach(Flag f in flags)
         {
             temp[tempint] = f.location;
             tempint++;
         }
+        foreach (Portal p in portals)
+        {
+            temp[tempint] = p.location;
+            tempint++;
+        }
         data.fastTravelLocations = temp;
-        MasterSceneData.allVisitedScenes.Add(data);
+        if (!MasterSceneData.allVisitedScenes.Contains(data))
+        {
+            MasterSceneData.allVisitedScenes.Add(data);
+        }
     }
 }
