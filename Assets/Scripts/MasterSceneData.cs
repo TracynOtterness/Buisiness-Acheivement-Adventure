@@ -5,7 +5,7 @@ using UnityEngine;
 public class MasterSceneData : MonoBehaviour {
 
     public static List<SceneData> allVisitedScenes;
-    List<Gate> allVisitedGates;
+    public static List<Gate> allVisitedGates;
 
     public static MasterSceneData masterSceneData;
 
@@ -15,16 +15,12 @@ public class MasterSceneData : MonoBehaviour {
         {
             masterSceneData = this;
             DontDestroyOnLoad(gameObject);
+            allVisitedGates = new List<Gate>();
+            allVisitedScenes = new List<SceneData>();
         }
         else
         {
             Destroy(this.gameObject);
         }
-    }
-
-    private void Start()
-    {
-        allVisitedGates = new List<Gate>();
-        allVisitedScenes = new List<SceneData>();
     }
 }

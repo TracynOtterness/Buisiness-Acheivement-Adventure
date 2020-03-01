@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FastTravelReset : MonoBehaviour {
 
-    [SerializeField] List<FastTravelLocation> fastTravelLocations;
-    static FastTravelReset ftr;
+    [SerializeField] public List<FastTravelLocation> fastTravelLocations;
+    public static FastTravelReset ftr;
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class FastTravelReset : MonoBehaviour {
             Destroy(this.gameObject);
         }
     }
-
+    
     void ResetLocations()
     {
         print("resetting visited status");
@@ -31,6 +31,14 @@ public class FastTravelReset : MonoBehaviour {
         foreach (FastTravelLocation f in fastTravelLocations)
         {
             f.visited = false;
+            if(f.locationName == null)
+            {
+                Debug.LogError("FastTravelLocation " + f.name + " does not have a location name!");
+            }
+            if (f.screenshot == null)
+            {
+                Debug.LogError("FastTravelLocation " + f.name + " does not have a screenshot!");
+            }
         }
     }
 

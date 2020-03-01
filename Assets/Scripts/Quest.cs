@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Quest : MonoBehaviour {
 
+    [SerializeField] public string questAcceptFlag;
     [SerializeField] public string[] questRequirementNames;
     [SerializeField] public FlagData[] questRequirementData;
 
@@ -16,6 +17,12 @@ public class Quest : MonoBehaviour {
     public int totalObjectives;
     public int completedObjectives;
 
+
+    private void Awake()
+    {
+
+    }
+
     private void Start()
     {
         totalObjectives = questRequirementNames.Length;
@@ -24,6 +31,8 @@ public class Quest : MonoBehaviour {
 
     private void ConstructQuestRequirements()
     {
+        print(questInfo.name + " on " + transform.name);
+        print("questrequirementnames.length:" + questRequirementNames.Length);
         for (int i = 0; i < questRequirementNames.Length; i++)
         {
             questRequirements.Add(questRequirementNames[i], questRequirementData[i]);
@@ -33,9 +42,11 @@ public class Quest : MonoBehaviour {
     public void CheckIfComplete()
     {
         print("checkifcomplete");
+        print("objectives: " + questRequirements.Count);
         completedObjectives = 0;
         foreach(KeyValuePair<string, FlagData> objective in questRequirements)
         {
+            print(objective.Key);
             if (objective.Value.isChecked)
             {
                 print("completedObjectives up");

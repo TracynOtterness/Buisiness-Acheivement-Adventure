@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eecc5712fa36474494a513c6c97d4c2, type: 3}
+  m_Name: 1-(2,3)
+  m_EditorClassIdentifier: 
+  buildIndex: 6
+  xCoordinate: 2
+  yCoordinate: 3
+  fastTravelLocations:
+  - {fileID: 11400000, guid: 155d6d667cdf94ab8b30076ef9fc14f1, type: 2}
+  - {fileID: 11400000, guid: e5bdb1c0329a749e18fc5ea005646ba3, type: 2}
+  - {fileID: 11400000, guid: 7500b85e8d726429da85a6522733fb60, type: 2}

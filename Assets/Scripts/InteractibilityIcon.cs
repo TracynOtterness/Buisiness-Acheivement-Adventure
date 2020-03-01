@@ -5,19 +5,20 @@ using UnityEngine;
 
 public class InteractibilityIcon : MonoBehaviour {
 
-    Animator animator;
+    public Animator animator;
     DialogueManager dialogueManager;
     public bool canInteract;
     public NPC interactableNPC;
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
         dialogueManager = FindObjectOfType<DialogueManager>();
     }
+
     public void OpenInteractivityPrompt(NPC newNPC)
     {
         if (dialogueManager.dialoging) { return; }
+        print(animator);
         animator.SetBool("ShowPrompt", true);
         canInteract = true;
         interactableNPC = newNPC;
@@ -32,6 +33,7 @@ public class InteractibilityIcon : MonoBehaviour {
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.V)) { print("IIs: " + FindObjectsOfType<InteractibilityIcon>().Length); }
         if (dialogueManager.dialoging) { ManualNextSentence(); return; }
         if (!canInteract) { return; }
         if (Input.GetKeyDown(KeyCode.F))

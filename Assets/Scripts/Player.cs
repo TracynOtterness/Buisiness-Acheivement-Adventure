@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] float shortDriftThreshold;
     [SerializeField] float shortDriftSpeed;
 
-    [SerializeField] Vector2 deathkick = new Vector2(25f, 25f);
+    [SerializeField] Vector2 deathkick = new Vector2(5f, 5f);
 
     //public values
     public int knowledgeBytes = 0;
@@ -49,12 +49,12 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        if (!isAlive || !controllable) { return; }
         if (!controllable)
         {
             myAnimator.SetBool("Running", false);
             return;
         }
+        if (!isAlive || !controllable) { return; }
         Run();
         Drift();
         Jump();

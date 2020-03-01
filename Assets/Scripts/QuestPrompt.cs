@@ -33,6 +33,11 @@ public class QuestPrompt : MonoBehaviour {
         myAnimator.SetBool("isDisplaying", false);
         if (isAccepted)
         {
+            if(storedQuest.questAcceptFlag != null)
+            {
+                print("f");
+                QuestManager.UpdateQuestFlag(storedQuest.questAcceptFlag);
+            }
             QuestManager.AddQuest(storedQuest);
         }
     }

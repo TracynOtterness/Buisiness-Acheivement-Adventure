@@ -9,6 +9,7 @@ public class Flag : MonoBehaviour {
     [SerializeField] GameObject particleEffect;
     [SerializeField] AudioClip soundEffect;
     [SerializeField] public FastTravelLocation location;
+    [SerializeField] string locationName;
     [Range(0f, 1f)]
     [SerializeField] float volume;
     [SerializeField] GameObject cosaPrefab;
@@ -17,16 +18,29 @@ public class Flag : MonoBehaviour {
     {
         location.position = gameObject.transform.position;
         location.nativeScene = FindObjectOfType<SceneDataHolder>().data;
+        location.locationName = locationName;
         animator = GetComponent<Animator>();
     }
 
     private void Start()
     {
+        if(location == null)
+		{
+			Debug.LogError(this.name + " has no attached FastTravelLocation!");
+		}
+        if(locationName == null)
+		{
+			Debug.LogError(this.locationName + " has no locationName!");
+		}
         if (location.visited) //show checkpoint as passed if warping back
         {
             passed = true;
             animator.SetBool("passed", true);
             FindObjectOfType<Player>().SetCheckpoint(transform.position);
+        }
+        if (!FastTravelReset.ftr.fastTravelLocations.Contains(location))
+        {
+            Debug.LogError("FastTravelLocation " + location.name + "Is not in FastTravelReset");
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

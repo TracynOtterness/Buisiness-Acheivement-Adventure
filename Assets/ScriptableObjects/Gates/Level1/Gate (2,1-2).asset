@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e2b60c6568b4ef5a0a5a1457ab0ffe, type: 3}
+  m_Name: Gate (2,1-2)
+  m_EditorClassIdentifier: 
+  ftls:
+  - {fileID: 11400000, guid: b62fec3ffc9eb408db8909cbcdfa8dee, type: 2}
+  - {fileID: 11400000, guid: aa6776011934b460a831d3ef1a4827db, type: 2}
+  scenes:
+  - {fileID: 11400000, guid: 2766a9d362a3644abb918092f5e0b420, type: 2}
+  - {fileID: 11400000, guid: 99574e38dee71451f9bb749db2ed5d21, type: 2}

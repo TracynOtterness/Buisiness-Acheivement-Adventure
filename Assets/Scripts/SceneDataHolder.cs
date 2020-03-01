@@ -7,6 +7,24 @@ public class SceneDataHolder : MonoBehaviour {
 
     [SerializeField] public SceneData data;
 
+
+    private void Awake()
+    {
+        if(data.name == "Null")
+        {
+            Debug.LogError("This Scene's SceneDataHolder hasn't been assigned properly!");
+        }
+        if (!MasterSceneData.allVisitedScenes.Contains(data))
+        {
+            print("Adding Scenedata from " + data.name);
+            MasterSceneData.allVisitedScenes.Add(data);
+        }
+        else
+        {
+            print("We've already been to this scene!");
+        }
+    }
+
     private void Start()
     {
         data.buildIndex = SceneManager.GetActiveScene().buildIndex;
@@ -25,9 +43,6 @@ public class SceneDataHolder : MonoBehaviour {
             tempint++;
         }
         data.fastTravelLocations = temp;
-        if (!MasterSceneData.allVisitedScenes.Contains(data))
-        {
-            MasterSceneData.allVisitedScenes.Add(data);
-        }
+
     }
 }

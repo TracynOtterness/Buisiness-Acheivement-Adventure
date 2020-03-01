@@ -23,6 +23,8 @@ public class GameSession : MonoBehaviour {
     public Animator gameOverAnimator;
     public Text gameOverLivesText;
 
+    public InteractibilityIcon ii;
+
     public Animator pauseMenuAnimator;
     public PauseMenu pauseMenu;
 
@@ -32,7 +34,7 @@ public class GameSession : MonoBehaviour {
     static List<Gate> allVisitedGates;
     [SerializeField] static FastTravelLocation fastTravelLocation;
 
-    public static int[] TotalCheckpointsInDifferentLevels = { 8 };
+    public static int[] TotalCheckpointsInDifferentLevels = { 11 };
 
     int continues = 0;
     bool pauseMenuIsUp;
@@ -74,7 +76,6 @@ public class GameSession : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
-            print(fastTravelLocation);
             QuestManager.UpdateQuestFlag("Kill9Bunnies");
         }
         if (Input.GetKeyDown(KeyCode.Y))
@@ -105,6 +106,22 @@ public class GameSession : MonoBehaviour {
         {
             QuestManager.UpdateQuestFlag("Quest3");
         }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            QuestManager.UpdateQuestFlag("Quest4");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            QuestManager.UpdateQuestFlag("Quest5");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            QuestManager.UpdateQuestFlag("Quest6");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            QuestManager.UpdateQuestFlag("Quest7");
+        }
     }
 
     public void GetReferences()
@@ -114,11 +131,12 @@ public class GameSession : MonoBehaviour {
         deathMask = FindObjectOfType<Player>().GetComponentInChildren<SpriteMask>().gameObject;
 
         if (dialogueManager == null) { dialogueManager = FindObjectOfType<DialogueManager>(); }
-        if(levelCanvas == null) { levelCanvas = FindObjectOfType<Canvas>(); }
+        if(levelCanvas == null) { levelCanvas = GameObject.Find("GameLevelCanvas").GetComponent<Canvas>(); }
         if(pauseMenu == null) { pauseMenu = FindObjectOfType<PauseMenu>(); }
         if(pauseMenuAnimator == null) { pauseMenuAnimator = pauseMenu.GetComponent<Animator>(); }
         if(gameOverAnimator == null) { gameOverAnimator = GameObject.Find("GameOverMenu").GetComponent<Animator>(); }
         if(gameOverLivesText == null) { gameOverLivesText = GameObject.Find("GameOverLivesText").GetComponent<Text>(); }
+        if(ii == null) { ii = FindObjectOfType<InteractibilityIcon>(); }
     }
 
     public void CollectCoin()
@@ -195,6 +213,7 @@ public class GameSession : MonoBehaviour {
             case 1: GameOver(); break; //Game Over
             case 2: Respawn(); print("Respawn from normal death"); break; //Normal Death
             case 3: Warp(); break; //Fast Travel
+            case 4: EndLevel(); break; //Go to next level
         }
     }
 
@@ -262,6 +281,7 @@ public class GameSession : MonoBehaviour {
         Time.timeScale = 1;
         UIFaderAnimator.SetBool("hiding", false);
         pauseMenuAnimator.SetBool("Pause", false);
+        PauseMenu.pauseMenu.HideQuestInfo();
         pauseMenuIsUp = false;
         pauseMenu.GetComponent<CanvasGroup>().interactable = false;
     }
@@ -280,9 +300,9 @@ public class GameSession : MonoBehaviour {
     }
     void Warp() //Once faded out, swaps over to new scene.
     {
+        print(fastTravelLocation.nativeScene.xCoordinate + ", " + fastTravelLocation.nativeScene.yCoordinate);
         int sceneToLoad = fastTravelLocation.nativeScene.buildIndex;
         SceneManager.LoadScene(sceneToLoad);
-
     }
 
     static void AddGate(Gate g)
@@ -295,11 +315,13 @@ public class GameSession : MonoBehaviour {
 
     public static void SetFTLByPortal(FastTravelLocation ftl, Gate g)
     {
+        print(g);
         AddGate(g);
         foreach(FastTravelLocation f in g.ftls)
         {
             if (f != ftl)
             {
+                print(f);
                 SetFTL(f);
                 f.visited = true;
             }
@@ -324,10 +346,15 @@ public class GameSession : MonoBehaviour {
         }
 
         pauseMenu.PurgeCollectedKnowledgeBytes();
+        NPC[] npcs = FindObjectsOfType<NPC>();
+        foreach(NPC npc in npcs)
+        {
+            npc.interactibilityIcon = ii;
+        }
 
         if (!isFirstLoad)
         {
-            QuestManager.questManager.PopulateQuestFlags();
+            QuestManager.questManager.StartCoroutine(QuestManager.questManager.WaitBeforePopulation()); //wait a second for quests to load before making them permanent
         }
         isFirstLoad = false;
     }
@@ -340,6 +367,26 @@ public class GameSession : MonoBehaviour {
     public void StopCoroutines()
     {
         StopAllCoroutines();
+    }
+
+
+    private void EndLevel()
+    {
+        print(fastTravelLocation.nativeScene.xCoordinate + ", " + fastTravelLocation.nativeScene.yCoordinate);
+        int sceneToLoad = fastTravelLocation.nativeScene.buildIndex;
+        ClearDontDestroyOnLoadForNextLevel();
+        SceneSwitcher.sceneSwitcher.StartCoroutine(SceneSwitcher.LoadWithDelay(sceneToLoad));
+        Destroy(gameObject);
+    }
+
+    void ClearDontDestroyOnLoadForNextLevel()
+    {
+        Destroy(FastTravelReset.ftr.gameObject);
+        Destroy(MasterSceneData.masterSceneData.gameObject);
+        PauseMenu.ResetObjectiveProgress();
+        Destroy(levelCanvas.gameObject);
+        QuestManager.activeQuests.Clear();
+        Destroy(QuestManager.questManager.gameObject);
     }
 
 }

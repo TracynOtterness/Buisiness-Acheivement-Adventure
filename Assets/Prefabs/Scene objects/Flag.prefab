@@ -100,7 +100,8 @@ MonoBehaviour:
   particleEffect: {fileID: 1573694173647694, guid: bed58553e422b495689fdd5e15628833,
     type: 2}
   soundEffect: {fileID: 8300000, guid: 5bc74cb191a774724b5fe7b29009ff16, type: 3}
-  location: {fileID: 11400000, guid: fa8bb6ef5835b4f338c0a497034f48c7, type: 2}
+  location: {fileID: 0}
+  locationName: 
   volume: 0.2
   cosaPrefab: {fileID: 1335139538335058, guid: a0b74a2bb72ce49988412f94136f0aa6, type: 2}
 --- !u!212 &212633334710379404

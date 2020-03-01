@@ -123,6 +123,9 @@
     <Compile Include="Assets\Gizmos\Cinemachine\Timeline\CinemachineMixer.cs" />
     <Compile Include="Assets\Gizmos\Cinemachine\Timeline\CinemachineShot.cs" />
     <Compile Include="Assets\Gizmos\Cinemachine\Timeline\CinemachineTrack.cs" />
+    <Compile Include="Assets\QuestFlagUpdater.cs" />
+    <Compile Include="Assets\SceneSwitcherForButtons.cs" />
+    <Compile Include="Assets\ScoreKeeper.cs" />
     <Compile Include="Assets\Scripts\Coin.cs" />
     <Compile Include="Assets\Scripts\Dialogue.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />

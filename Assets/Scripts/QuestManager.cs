@@ -25,50 +25,84 @@ public class QuestManager : MonoBehaviour {
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            foreach(KeyValuePair<string, FlagData> x in questFlags)
+            {
+                print(x.Key);
+            }
+        }
+    }
     private void Start()
     {
         allQuests = new List<Quest>();
+        StartCoroutine(WaitBeforePopulation());
+    }
+
+    public IEnumerator WaitBeforePopulation()
+    {
+        yield return new WaitForSeconds(.1f);
         PopulateQuestFlags();
     }
 
-
-    void StoreQuests(List<Quest> quests)
+    void StoreQuests(List<Quest> newQuests, List<Quest> duplicateQuests, List<Quest> existingQuests)
     {
-        for(int i = quests.Count; i > 0; i--)
+        for(int i = newQuests.Count - 1; i >= 0; i--)
         {
             GameObject newQuestHolder = Instantiate(questHolder, this.transform);
             Quest questToAdd = newQuestHolder.GetComponent<Quest>();
             allQuests.Add(questToAdd);
-            questToAdd.questRequirementNames = quests[i-1].questRequirementNames;
-            questToAdd.questRequirementData = quests[i-1].questRequirementData;
-            questToAdd.questInfo = quests[i-1].questInfo;
-            quests[i-1].GetComponent<NPC>().SetQuest(questToAdd);
-            Destroy(quests[i-1]);
+            questToAdd.questAcceptFlag = newQuests[i].questAcceptFlag;
+            questToAdd.questRequirementNames = newQuests[i].questRequirementNames;
+            questToAdd.questRequirementData = newQuests[i].questRequirementData;
+            questToAdd.questInfo = newQuests[i].questInfo;
+            questToAdd.totalObjectives = newQuests[i].totalObjectives;
+            newQuests[i].GetComponent<NPC>().SetQuest(questToAdd);
+            Destroy(newQuests[i]);
+        }
+        for(int i = duplicateQuests.Count - 1; i >= 0; i--)
+        {
+            duplicateQuests[i].GetComponent<NPC>().SetQuest(existingQuests[i]);
+            Destroy(duplicateQuests[i]);
         }
     }
 
     //populateQuestFlags on scene loaded
 
-    public void PopulateQuestFlags()
+    void PopulateQuestFlags()
     {
         Quest[] newQuests = FindObjectsOfType<Quest>();
-        List<Quest> newQuestsList = ArrayToList(newQuests);
+        List<Quest> newQuestsList = ArrayToList(newQuests); //list of new quests to add
+        List<Quest> duplicateQuestsList = new List<Quest>();//list of duplicate quests
+        List<Quest> existingQuestsList = new List<Quest>();//list of quests that the duplicate quests are duplicates of
         print(newQuestsList.Count);
         for (int i = newQuestsList.Count - 1; i >= 0; i--)
         {
-            bool isNewQuest = CheckIfNewQuest(newQuestsList[i]);
-            if (!isNewQuest)
+            int isNewQuest = CheckIfNewQuest(newQuestsList[i]);
+            if (isNewQuest != 2) //it's not a new quest
             {
+                if(isNewQuest == 1) //it's a duplicate, and the NPC needs a quest
+                {
+                    print("updating duplicate and old quest lists");
+                    duplicateQuestsList.Add(newQuestsList[i]);
+                    existingQuestsList.Add(GetExistingQuest(newQuestsList[i]));
+                }
                 newQuestsList.Remove(newQuestsList[i]);
+                print("continue");
                 continue;
             }
+            print("adding " + newQuestsList[i].questRequirements.Count + " flags from " + newQuestsList[i].questInfo.name);
             foreach (KeyValuePair<string, FlagData> flag in newQuestsList[i].questRequirements)
             {
                 questFlags.Add(flag.Key, flag.Value);
             }
         }
-        print(newQuestsList.Count);
-        StoreQuests(newQuestsList);
+        print("New Quests: " + newQuestsList.Count);
+        print("Old Quests: " + duplicateQuestsList.Count);
+        print("Duplicate Quests: " + existingQuestsList.Count);
+        StoreQuests(newQuestsList, duplicateQuestsList, existingQuestsList);
     }
 
     private List<Quest> ArrayToList(Quest[] newQuests)
@@ -81,26 +115,38 @@ public class QuestManager : MonoBehaviour {
         return returnList;
     }
 
-    private bool CheckIfNewQuest(Quest q)
+    private int CheckIfNewQuest(Quest q)
     {
-        if (allQuests == null) { return true; }
+        if (allQuests == null) { return 0; }
         print("CheckIfNewQuest on quest: " + q.questInfo.name);
-        if (q.transform.parent = transform)
+        if (q.transform.parent == transform)
         {
             print("old quest");
-            return false;
+            return 0;
         }
         foreach (Quest existingQuest in allQuests)
         {
-            print("existing quest: " + existingQuest.questInfo.name);
             if (q.questInfo.name == existingQuest.questInfo.name)
             {
                 print("duplicate");
-                return false;
+                return 1;
             }
         }
         print("new quest");
-        return true;
+        return 2;
+    }
+
+    private Quest GetExistingQuest(Quest quest)
+    {
+        foreach (Quest existingQuest in allQuests)
+        {
+            if (quest.questInfo.name == existingQuest.questInfo.name)
+            {
+                return existingQuest;
+            }
+        }
+        print("not a duplicate");
+        return null;
     }
 
     public static void AddQuest(Quest questToAdd)
@@ -109,15 +155,10 @@ public class QuestManager : MonoBehaviour {
         questToAdd.CheckIfComplete();
         print("Accepted quest: '" + questToAdd.questInfo.name + "'");
     }
-    /*public static void RemoveQuest(Quest questToRemove)
-    {
-        activeQuests.Remove(questToRemove);
-        print("Quest: '" + questToRemove.questInfo.name + "' is complete!");
-    }*/
 
     public static void UpdateQuestFlag(string flagName)
     {
-        if(questFlags[flagName] != null)
+        if(questFlags.ContainsKey(flagName))
         {
             IncrementFlag(questFlags[flagName]);
             print("incremented " + questFlags[flagName]);
@@ -128,11 +169,14 @@ public class QuestManager : MonoBehaviour {
         }
         for(int i = activeQuests.Count - 1; i >= 0; i--)
         {
-            print(activeQuests[i]);
+            print(activeQuests[i].questInfo.name);
             if (!activeQuests[i].complete)
             {
-                print("alkdjajdf" + activeQuests[i]);
                 activeQuests[i].CheckIfComplete();
+            }
+            else
+            {
+                print("complete");
             }
         }
     }

@@ -45,6 +45,16 @@ public class SceneSwitcher : MonoBehaviour {
     IEnumerator LoadStartScene()
     {
         yield return new WaitForSecondsRealtime(2f);
-        Load("1-(2,2)");
+        Load("Future(0,0)");
+    }
+
+    public static IEnumerator LoadWithDelay(int index)
+    {
+        yield return new WaitForSecondsRealtime(.1f);
+        SceneManager.LoadScene(index);
+    }
+    public static void ButtonLoad(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }

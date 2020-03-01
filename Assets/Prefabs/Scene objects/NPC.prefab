@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8106a5b2472e3428e86fe9dd2289fa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactibilityIcon: {fileID: 0}
   quest: {fileID: 0}
   dialogue:
     name: John Otterness

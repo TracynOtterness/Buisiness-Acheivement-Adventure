@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour {
 
-    InteractibilityIcon interactibilityIcon;
+    public InteractibilityIcon interactibilityIcon;
     public Quest quest;
 
 
@@ -16,11 +16,7 @@ public class NPC : MonoBehaviour {
     {
         quest = GetComponent<Quest>();
     }
-    private void Start()
-    {
-        interactibilityIcon = FindObjectOfType<InteractibilityIcon>();
-        //quest = GetComponent<Quest>();
-    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         interactibilityIcon.OpenInteractivityPrompt(this);

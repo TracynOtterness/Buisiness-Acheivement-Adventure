@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class PauseMenu : MonoBehaviour {
 
@@ -41,6 +42,7 @@ public class PauseMenu : MonoBehaviour {
     [Header("Other References")]
     [SerializeField] Text livesText;
     [SerializeField] Text coinsText;
+    [SerializeField] PopulateQuestGrid ftlGridPopulator;
 
     static int[] KBLevelRequirements = { 0, 4, 8, 12, 15 };
     static float[] explorationLevelRequirements = { 0f, .25f, .5f, .75f, 1f };
@@ -61,8 +63,12 @@ public class PauseMenu : MonoBehaviour {
 
     static bool minimapIsZoomedIn;
     static FastTravelLocation selectedFastTravelLocation;
+    public static int ZoomedOutMapXCoord;
+    public static int ZoomedOutMapYCoord;
 
     public static PauseMenu pauseMenu;
+    public static int objectivesTotal = 3;
+    public static bool canAdvanceToNextLevel;
 
     private void Awake()
     {
@@ -90,12 +96,15 @@ public class PauseMenu : MonoBehaviour {
         DisplaySideQuestProgress();
         DisplayLivesAndCoins(lives, coins);
         PopulateQuestGrid();
+        ZoomedOutMapXCoord = FindObjectOfType<SceneDataHolder>().data.xCoordinate;
+        ZoomedOutMapYCoord = FindObjectOfType<SceneDataHolder>().data.yCoordinate;
         PopulateFastTravelLocations();
+        ftlGridPopulator.PopulateGrid();
     }
 
     private void PopulateQuestGrid()
     {
-        for (int i = 0; i < QuestManager.activeQuests.Count; i++) //move completed quests to the end of the list so they are added last
+        for (int i = QuestManager.activeQuests.Count - 1; i >= 0; i--) //move completed quests to the end of the list so they are added last
         {
             Quest questToRelocate = QuestManager.activeQuests[i];
             if (questToRelocate.complete)
@@ -210,6 +219,7 @@ public class PauseMenu : MonoBehaviour {
         if(currentKBCount == KBLevelRequirements[currentKBLevel + 1])
         {
             currentKBLevel++;
+            CheckIfNextLevelAvailable();
         }
     }
     public static void IncreaseCheckpointCount()
@@ -218,17 +228,17 @@ public class PauseMenu : MonoBehaviour {
         if ((float)currentCheckpoints/totalCheckpoints >= explorationLevelRequirements[currentExplorationLevel + 1])
         {
             currentExplorationLevel++;
+            CheckIfNextLevelAvailable();
         }
     }
     public static void IncreaseSideQuestCount()
     {
         currentSideQuestCount++;
-        print(currentSideQuestLevel);
         if (currentSideQuestCount == sideQuestLevelRequirements[currentSideQuestLevel + 1])
         {
             currentSideQuestLevel++;
+            CheckIfNextLevelAvailable();
         }
-        print(currentSideQuestCount);
     }
     public void ResetSideQuestDisplay()
     {
@@ -292,26 +302,36 @@ public class PauseMenu : MonoBehaviour {
         }
         foreach(SceneData s in MasterSceneData.allVisitedScenes) //get all FastTravelLocations
         {
-            foreach(FastTravelLocation f in s.fastTravelLocations)
+            if(s.xCoordinate == ZoomedOutMapXCoord && s.yCoordinate == ZoomedOutMapYCoord)
             {
-                allFastTravelLocations.Add(f);
+                foreach (FastTravelLocation f in s.fastTravelLocations)
+                {
+                    allFastTravelLocations.Add(f);
+                }
             }
         }
 
         bool defaultFTLisSet = false;
-        foreach(FastTravelLocation f in allFastTravelLocations)
+        if(allFastTravelLocations.Count != 0)
         {
-            if (f.visited)
+            foreach (FastTravelLocation f in allFastTravelLocations)
             {
-                if (!defaultFTLisSet)
+                if (f.visited)
                 {
-                    GameSession.SetFTL(f);
-                    defaultFTLisSet = true;
+                    if (!defaultFTLisSet)
+                    {
+                        GameSession.SetFTL(f);
+                        defaultFTLisSet = true;
+                    }
+                    GameObject newObj = Instantiate(FastTravelUIPrefab, fastTravelScrollViewContent.transform);
+                    newObj.GetComponent<FastTravelUIButton>().location = f;
+                    newObj.GetComponent<FastTravelUIButton>().SetName();
                 }
-                GameObject newObj = Instantiate(FastTravelUIPrefab, fastTravelScrollViewContent.transform);
-                newObj.GetComponent<FastTravelUIButton>().location = f;
-                newObj.GetComponent<FastTravelUIButton>().SetName();
             }
+        }
+        else
+        {
+            print("no fast travel locations have been discovered in this scene yet!");
         }
     }
 
@@ -324,13 +344,51 @@ public class PauseMenu : MonoBehaviour {
             {
                 for (int i = kbs.Length - 1; i >= 0; i--)
                 {
-                    if (kbui.trivia == kbs[i].trivia)
+                    bool match = CompareDialogue(kbui.trivia, kbs[i].trivia);
+                    if (match)
                     {
-                        Destroy(kbs[i]);
+                        Destroy(kbs[i].gameObject);
                     }
                 }
             }
         }
+    }
+
+    bool CompareDialogue(Dialogue d1, Dialogue d2)
+    {
+        if (!(d1.name == d2.name))
+        {
+            return false;
+        }
+        if (!(d1.avatar == d2.avatar))
+        {
+            return false;
+        }
+        if(!d1.sentences.SequenceEqual(d2.sentences))
+        {
+            return false;
+        }
+        return true;
+    }
+
+    static void CheckIfNextLevelAvailable()
+    {
+        objectivesTotal++;
+        print(objectivesTotal);
+        if (objectivesTotal >= 10 && currentKBLevel >= 1 && currentSideQuestLevel >=1 && currentExplorationLevel >=1)
+        {
+            canAdvanceToNextLevel = true;
+        }
+    }
+
+    public static void ResetObjectiveProgress()
+    {
+        currentKBCount = 0;
+        currentCheckpoints = 0;
+        currentSideQuestCount = 0;
+        currentKBLevel = 0;
+        currentSideQuestLevel = 0;
+        currentExplorationLevel = 0;
     }
 
 }
