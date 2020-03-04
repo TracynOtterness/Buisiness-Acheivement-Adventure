@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2de266301d2247189df937c860644a1, type: 3}
+  m_Name: Earring Girl
+  m_EditorClassIdentifier: 
+  position: {x: -0.59, y: 3.53, z: 0}
+  nativeScene: {fileID: 11400000, guid: 4a2d7bad7a23b42e5b84a736823593ee, type: 2}
+  screenshot: {fileID: 21300000, guid: b45d082f99f3e46d090857429ede430c, type: 3}
+  visited: 1
+  locationName: Earring Girl

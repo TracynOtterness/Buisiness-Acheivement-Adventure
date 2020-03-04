@@ -6,11 +6,5 @@ using UnityEngine;
 public class Gate : ScriptableObject {
 
     [SerializeField] public FastTravelLocation[] ftls;
-    public SceneData[] scenes;
-
-    private void Awake()
-    {
-        scenes = new SceneData[2] { ftls[0].nativeScene, ftls[1].nativeScene };
-    }
-
+    [SerializeField] public SceneData[] scenes;
 }

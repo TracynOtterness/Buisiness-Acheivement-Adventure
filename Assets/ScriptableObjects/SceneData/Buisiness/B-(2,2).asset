@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eecc5712fa36474494a513c6c97d4c2, type: 3}
   m_Name: B-(2,2)
   m_EditorClassIdentifier: 
-  buildIndex: 11
+  buildIndex: 12
   xCoordinate: 2
   yCoordinate: 2
+  musicType: 1
   fastTravelLocations: []

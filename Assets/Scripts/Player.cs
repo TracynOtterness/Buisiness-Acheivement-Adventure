@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     //colliders
     [SerializeField] Collider2D bodyCollider;
     [SerializeField] Collider2D feetCollider;
+    [SerializeField] Collider2D ladderCollider;
 
     //states
     bool isAlive = true;
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour
         print("playerSpawnPosition: " + spawnPosition);
         spawnPosition = transform.position;
     }
+
     void Update()
     {
         if (!controllable)
@@ -56,9 +58,9 @@ public class Player : MonoBehaviour
         }
         if (!isAlive || !controllable) { return; }
         Run();
+        ClimbLadder();
         Drift();
         Jump();
-        ClimbLadder();
         FlipSprite();
         WallJump();
         WallSlide();
@@ -68,18 +70,19 @@ public class Player : MonoBehaviour
 
     private void ClimbLadder()
     {
-        if (!bodyCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
+        if (!ladderCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
         {
             myAnimator.SetBool("Climbing", false);
             myRigidbody.gravityScale = gravity;
             return;
         }
-
+        myAnimator.SetBool("Running", false);
         myRigidbody.velocity = new Vector2(climbSpeed * Input.GetAxis("Horizontal"), climbSpeed * Input.GetAxis("Vertical"));
         myRigidbody.gravityScale = 0f;
 
-        bool hasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
-        myAnimator.SetBool("Climbing", hasVerticalSpeed);
+        bool hasSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon || Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
+        myAnimator.SetBool("Climbing", hasSpeed);
+        //myAnimator.SetBool("Climbing", true);
     }
 
     private void Run()
@@ -88,6 +91,7 @@ public class Player : MonoBehaviour
         {
             myRigidbody.velocity = new Vector2(Input.GetAxis("Horizontal") * runSpeed, myRigidbody.velocity.y);
             bool playerIsMoving = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
+            if (playerIsMoving) { print("Running from BACKDRIFT"); }
             myAnimator.SetBool("Running", playerIsMoving);
         }
     }
@@ -103,7 +107,7 @@ public class Player : MonoBehaviour
 
     private void FlipSprite()
     {
-        bool playerIsMoving = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
+        bool playerIsMoving = Mathf.Abs(myRigidbody.velocity.x) > .1f;
         if (playerIsMoving)
         {
             transform.localScale = new Vector2(Mathf.Sign(myRigidbody.velocity.x), 1f);
@@ -130,10 +134,13 @@ public class Player : MonoBehaviour
     {
         bool canDrift =
          !feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) && //is airborn
+         !feetCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")) && //not on a ladder
+         !bodyCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")) &&
          (int)Mathf.Sign(Input.GetAxis("Horizontal")) != (int)Mathf.Sign(myRigidbody.velocity.x); //player is holding direction opposite to which way the character is going
 
         if (canDrift)
         {
+            print("Running from BACKDRIFT");
             Vector3 driftForce = new Vector3(aerialDriftSpeed * Input.GetAxis("Horizontal"), 0, 0);
             myRigidbody.AddForce(driftForce, ForceMode2D.Force);
             bool playerIsMoving = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
@@ -146,12 +153,17 @@ public class Player : MonoBehaviour
         //print(myRigidbody.velocity.x);
         bool canDrift =
             !feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) && //is airborn
+            !feetCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")) && //not on a ladder
+            !bodyCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")) &&
             Mathf.Abs(myRigidbody.velocity.x) < shortDriftThreshold;//player is moving slowly enough to be able to use this
         if (canDrift)
         {
+
             Vector3 driftForce = new Vector3(shortDriftSpeed * Input.GetAxis("Horizontal"), 0, 0);
             myRigidbody.AddForce(driftForce, ForceMode2D.Force);
             bool playerIsMoving = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
+            if (playerIsMoving) {  }
+            print("Running from SHORTDRIFT");
             myAnimator.SetBool("Running", playerIsMoving);
         }
     }
@@ -180,6 +192,7 @@ public class Player : MonoBehaviour
             isAlive = false;
             myAnimator.SetTrigger("Die");
             myRigidbody.velocity = deathkick;
+            myRigidbody.gravityScale = gravity;
             FindObjectOfType<GameSession>().ProcessPlayerDeath();
         }
 

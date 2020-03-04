@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4732933154128466}
   - component: {fileID: 82030107091063000}
-  - component: {fileID: 114194174316919632}
+  - component: {fileID: 114321164191592326}
   m_Layer: 10
   m_Name: CustomOneShotAudio
   m_TagString: Untagged
@@ -136,7 +136,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114194174316919632
+--- !u!114 &114321164191592326
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -144,6 +144,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1335139538335058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 626f4b6299e38426fa83359e309ea3d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 3db11480b862740a09543b8342433f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

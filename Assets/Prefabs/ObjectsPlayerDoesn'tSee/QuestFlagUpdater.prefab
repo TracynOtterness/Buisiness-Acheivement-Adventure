@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4159233610809896}
-  - component: {fileID: 114495602514781824}
+  - component: {fileID: 114073975669521376}
   m_Layer: 0
   m_Name: QuestFlagUpdater
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114495602514781824
+--- !u!114 &114073975669521376
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,7 +48,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1936165569831870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb176d8c05ba84e5f9a4524197ad1715, type: 3}
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   FlagName: 
+  triggerType: 

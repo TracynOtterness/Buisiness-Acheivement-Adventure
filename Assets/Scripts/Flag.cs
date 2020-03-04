@@ -16,6 +16,7 @@ public class Flag : MonoBehaviour {
 
     private void Awake()
     {
+        print(location);
         location.position = gameObject.transform.position;
         location.nativeScene = FindObjectOfType<SceneDataHolder>().data;
         location.locationName = locationName;
@@ -38,6 +39,7 @@ public class Flag : MonoBehaviour {
             animator.SetBool("passed", true);
             FindObjectOfType<Player>().SetCheckpoint(transform.position);
         }
+        print(FastTravelReset.ftr);
         if (!FastTravelReset.ftr.fastTravelLocations.Contains(location))
         {
             Debug.LogError("FastTravelLocation " + location.name + "Is not in FastTravelReset");

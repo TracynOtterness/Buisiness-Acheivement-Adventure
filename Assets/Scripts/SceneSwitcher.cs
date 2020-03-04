@@ -53,7 +53,7 @@ public class SceneSwitcher : MonoBehaviour {
         yield return new WaitForSecondsRealtime(.1f);
         SceneManager.LoadScene(index);
     }
-    public static void ButtonLoad(string sceneName)
+    public void ButtonLoad(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }

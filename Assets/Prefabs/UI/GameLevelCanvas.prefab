@@ -1721,7 +1721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1851025574661790
 GameObject:
   m_ObjectHideFlags: 1
@@ -2629,8 +2629,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114306343672435082}
   m_HandleRect: {fileID: 224845427459851362}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3915,7 +3915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1770642007054172, guid: c90f03320ac484584b30379bf5b7a08b, type: 2}
   numberToCreate: 25
-  selectedText: {fileID: 0}
+  selectedText: {fileID: 114662680510453596}
 --- !u!114 &114285831090119056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8790,7 +8790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000008583069, y: 0.00004524935}
+  m_AnchoredPosition: {x: -0.000008583069, y: 0.00005979578}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224513280402766674

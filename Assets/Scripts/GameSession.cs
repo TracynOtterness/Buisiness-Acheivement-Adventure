@@ -34,7 +34,7 @@ public class GameSession : MonoBehaviour {
     static List<Gate> allVisitedGates;
     [SerializeField] static FastTravelLocation fastTravelLocation;
 
-    public static int[] TotalCheckpointsInDifferentLevels = { 11 };
+    public static int[] TotalCheckpointsInDifferentLevels = { 6,11,11,11 };
 
     int continues = 0;
     bool pauseMenuIsUp;
@@ -64,7 +64,7 @@ public class GameSession : MonoBehaviour {
         livesText.text = playerLives.ToString();
         coinsText.text = coins.ToString();
         GetReferences();
-
+        currentLevel = ScoreKeeper.currentLevel;
         allVisitedGates = new List<Gate>();
     }
 
@@ -73,6 +73,10 @@ public class GameSession : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.P))
         {
             TogglePauseMenu();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -213,7 +217,7 @@ public class GameSession : MonoBehaviour {
             case 1: GameOver(); break; //Game Over
             case 2: Respawn(); print("Respawn from normal death"); break; //Normal Death
             case 3: Warp(); break; //Fast Travel
-            case 4: EndLevel(); break; //Go to next level
+            case 4: if (currentLevel != 3) { EndLevel(); } else { EndGame(); } break; //Go to next level
         }
     }
 
@@ -288,8 +292,9 @@ public class GameSession : MonoBehaviour {
 
 
 
-    public static void SetFTL(FastTravelLocation ftl) //triggers FadeOut
+    public static void SetFTL(FastTravelLocation ftl)
     {
+        print(ftl.locationName);
         fastTravelLocation = ftl;
         print(fastTravelLocation.locationName);
     }
@@ -300,6 +305,7 @@ public class GameSession : MonoBehaviour {
     }
     void Warp() //Once faded out, swaps over to new scene.
     {
+        print(fastTravelLocation.locationName);
         print(fastTravelLocation.nativeScene.xCoordinate + ", " + fastTravelLocation.nativeScene.yCoordinate);
         int sceneToLoad = fastTravelLocation.nativeScene.buildIndex;
         SceneManager.LoadScene(sceneToLoad);
@@ -313,17 +319,22 @@ public class GameSession : MonoBehaviour {
         }
     }
 
-    public static void SetFTLByPortal(FastTravelLocation ftl, Gate g)
+    public static void SetFTLByPortal(FastTravelLocation ftl, Gate g, FastTravelLocation[] ftls)
     {
         print(g);
         AddGate(g);
-        foreach(FastTravelLocation f in g.ftls)
+        print(g.ftls.Length);
+
+        for(int i = 0; i < ftls.Length; i++) 
         {
-            if (f != ftl)
+            print("a fastTravelLocation in this gate is: " + ftls[i].locationName);
+            if (ftls[i].locationName != ftl.locationName)
             {
-                print(f);
-                SetFTL(f);
-                f.visited = true;
+                print("it's what we're after");
+                print(ftls[i].locationName);
+                SetFTL(ftls[i]);
+                ftls[i].visited = true;
+                break;
             }
         }
     }
@@ -355,6 +366,7 @@ public class GameSession : MonoBehaviour {
         if (!isFirstLoad)
         {
             QuestManager.questManager.StartCoroutine(QuestManager.questManager.WaitBeforePopulation()); //wait a second for quests to load before making them permanent
+            Music.ChangeSong(FindObjectOfType<SceneDataHolder>().data.musicType);
         }
         isFirstLoad = false;
     }
@@ -372,9 +384,12 @@ public class GameSession : MonoBehaviour {
 
     private void EndLevel()
     {
-        print(fastTravelLocation.nativeScene.xCoordinate + ", " + fastTravelLocation.nativeScene.yCoordinate);
+        print("EndLevel");
+        print(currentLevel);
         int sceneToLoad = fastTravelLocation.nativeScene.buildIndex;
         ClearDontDestroyOnLoadForNextLevel();
+        ScoreKeeper.currentLevel++;
+        ScoreKeeper.coinsCollected += coins;
         SceneSwitcher.sceneSwitcher.StartCoroutine(SceneSwitcher.LoadWithDelay(sceneToLoad));
         Destroy(gameObject);
     }
@@ -383,10 +398,22 @@ public class GameSession : MonoBehaviour {
     {
         Destroy(FastTravelReset.ftr.gameObject);
         Destroy(MasterSceneData.masterSceneData.gameObject);
-        PauseMenu.ResetObjectiveProgress();
+
         Destroy(levelCanvas.gameObject);
         QuestManager.activeQuests.Clear();
         Destroy(QuestManager.questManager.gameObject);
+    }
+
+    void EndGame()
+    {
+        print("EndLevel");
+        ScoreKeeper.coinsCollected += coins;
+        PauseMenu.ResetObjectiveProgress();
+        ScoreKeeper.ShowScoreoard();
+    }
+    public void Quit()
+    {
+        Application.Quit();
     }
 
 }

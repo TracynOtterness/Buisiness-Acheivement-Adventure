@@ -8,5 +8,6 @@ public class SceneData : ScriptableObject
     [SerializeField] public int buildIndex;
     [SerializeField] public int xCoordinate;
     [SerializeField] public int yCoordinate;
+    [SerializeField] public int musicType;
     [SerializeField] public FastTravelLocation[] fastTravelLocations;
 }

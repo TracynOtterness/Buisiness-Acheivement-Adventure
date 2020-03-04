@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Levels/Level - Future/Future(0,0).unity
+- path: Assets/Levels/Level - Leader/Leader (2,2).unity
   isLoaded: 1
   isActive: 1

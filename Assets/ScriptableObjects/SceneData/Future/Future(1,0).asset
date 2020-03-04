@@ -14,5 +14,6 @@ MonoBehaviour:
   buildIndex: 10
   xCoordinate: 1
   yCoordinate: 0
+  musicType: 1
   fastTravelLocations:
   - {fileID: 11400000, guid: 84c361087a6744286aa184a9b2cf18b1, type: 2}

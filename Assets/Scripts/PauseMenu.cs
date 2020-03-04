@@ -383,6 +383,9 @@ public class PauseMenu : MonoBehaviour {
 
     public static void ResetObjectiveProgress()
     {
+        ScoreKeeper.knowledgeBytesCollected += currentKBCount;
+        ScoreKeeper.sideQuestsCompleted += currentSideQuestCount;
+        ScoreKeeper.checkpointsPassed += currentCheckpoints;
         currentKBCount = 0;
         currentCheckpoints = 0;
         currentSideQuestCount = 0;

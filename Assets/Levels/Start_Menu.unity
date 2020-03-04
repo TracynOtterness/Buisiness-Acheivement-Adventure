@@ -8703,6 +8703,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519094748}
+--- !u!1 &530607784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 530607786}
+  - component: {fileID: 530607785}
+  m_Layer: 0
+  m_Name: tempSceneSwitch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &530607785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 530607784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc87bbe1430144f9196361194a1eab75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &530607786
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 530607784}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 953.3921, y: 627.5089, z: 6.0488443}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &566151837
 GameObject:
   m_ObjectHideFlags: 0
@@ -9151,6 +9191,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &724407310
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4064296021792242, guid: a32ea497322334b3abfe2ccbe3a43137, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064296021792242, guid: a32ea497322334b3abfe2ccbe3a43137, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064296021792242, guid: a32ea497322334b3abfe2ccbe3a43137, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064296021792242, guid: a32ea497322334b3abfe2ccbe3a43137, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064296021792242, guid: a32ea497322334b3abfe2ccbe3a43137, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064296021792242, guid: a32ea497322334b3abfe2ccbe3a43137, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064296021792242, guid: a32ea497322334b3abfe2ccbe3a43137, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064296021792242, guid: a32ea497322334b3abfe2ccbe3a43137, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a32ea497322334b3abfe2ccbe3a43137, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &984310420
 GameObject:
   m_ObjectHideFlags: 0
@@ -9161,8 +9243,8 @@ GameObject:
   - component: {fileID: 984310421}
   - component: {fileID: 984310425}
   - component: {fileID: 984310424}
-  - component: {fileID: 984310423}
   - component: {fileID: 984310422}
+  - component: {fileID: 984310423}
   m_Layer: 5
   m_Name: How To Play Button
   m_TagString: Untagged
@@ -9241,8 +9323,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2123976791}
-        m_MethodName: ButtonLoad
+      - m_Target: {fileID: 530607785}
+        m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9383,8 +9465,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2123976791}
-        m_MethodName: Load
+      - m_Target: {fileID: 530607785}
+        m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13645,7 +13727,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2123976791}
+      - m_Target: {fileID: 530607785}
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:

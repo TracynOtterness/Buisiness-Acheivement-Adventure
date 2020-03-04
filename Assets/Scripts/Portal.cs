@@ -23,14 +23,17 @@ public class Portal : MonoBehaviour {
     {
         animator = GameObject.Find("Warp Icon").GetComponent<Animator>();
         location.position = this.transform.position;
-        location.nativeScene = FindObjectOfType<SceneDataHolder>().data;
         location.locationName = this.locationName;
         if (NextLevelPortal && PauseMenu.canAdvanceToNextLevel)
         {
-            objectivesComplete = true;
-            GetComponent<Animator>().SetTrigger("activated");
+            location.visited = false;
+            if (PauseMenu.canAdvanceToNextLevel)
+            {
+                objectivesComplete = true;
+                GetComponent<Animator>().SetTrigger("activated");
+            }
         }
-        if (!FastTravelReset.ftr.fastTravelLocations.Contains(location))
+        if (!NextLevelPortal && !FastTravelReset.ftr.fastTravelLocations.Contains(location))
         {
             Debug.LogError("FastTravelLocation " + location.name + "Is not in FastTravelReset");
         }
@@ -50,6 +53,15 @@ public class Portal : MonoBehaviour {
         if(gate.scenes[0] == null || gate.scenes[1] == null || gate.ftls[0] == null || gate.ftls[1] == null)
         {
             Debug.LogError(gate.name + " has missing values");
+        }
+        else
+        {
+            print("Gate ftls:");
+            print(gate.ftls[0]);
+            print(gate.ftls[1]);
+            print("Gate Scenes:");
+            print(gate.scenes[0]);
+            print(gate.scenes[1]);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -77,7 +89,7 @@ public class Portal : MonoBehaviour {
                     animator.SetBool("Hiding", true);
                     location.visited = true;
                     print(location + "  " + gate);
-                    GameSession.SetFTLByPortal(location, gate);
+                    GameSession.SetFTLByPortal(location, gate, gate.ftls);
                     GameSession.gameSession.StopCoroutines();
                     GameSession.gameSession.StartCoroutine(GameSession.gameSession.FadeOut(4));
                 }
@@ -92,8 +104,7 @@ public class Portal : MonoBehaviour {
                 {
                     animator.SetBool("Hiding", true);
                     location.visited = true;
-                    print(location + "  " + gate);
-                    GameSession.SetFTLByPortal(location, gate);
+                    GameSession.SetFTLByPortal(location, gate, gate.ftls);
                     GameSession.gameSession.StopCoroutines();
                     GameSession.gameSession.StartCoroutine(GameSession.gameSession.FadeOut(3));
                 }
