@@ -164,6 +164,7 @@
     <Compile Include="Assets\Scripts\UIFader.cs" />
     <Compile Include="Assets\Scripts\WarpIcon.cs" />
     <Compile Include="Assets\Scripts\ZoomedOutMinimapButton.cs" />
+    <Compile Include="Assets\TempMusic.cs" />
     <None Include="Assets\2d-extras-master\Assets\Tilemap\Brushes\Tint Brush Smooth\Shaders\TintedTilemap.shader" />
     <None Include="Assets\Gizmos\Cinemachine\ReleaseNotes.txt" />
     <Reference Include="UnityEditor.StandardEvents">

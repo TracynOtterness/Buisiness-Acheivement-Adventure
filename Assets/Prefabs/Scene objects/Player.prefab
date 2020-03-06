@@ -125,7 +125,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1967837582841238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 49.3, y: 31.7, z: 0}
+  m_LocalPosition: {x: -7.6, y: 11.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4364805962949914}
@@ -239,7 +239,7 @@ MonoBehaviour:
   maxYVelocity: 20
   shortDriftThreshold: 2.5
   shortDriftSpeed: 25
-  deathkick: {x: 25, y: 25}
+  deathkick: {x: 5, y: 5}
   knowledgeBytes: 0
   bodyCollider: {fileID: 70800741947867528}
   feetCollider: {fileID: 70092120620748972}

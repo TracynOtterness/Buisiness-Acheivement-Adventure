@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2de266301d2247189df937c860644a1, type: 3}
   m_Name: B-(3,2),(2,2)
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
-  nativeScene: {fileID: 0}
-  screenshot: {fileID: 0}
+  position: {x: -8, y: 11, z: 0}
+  nativeScene: {fileID: 11400000, guid: 650316b9614424ebeaa92800fd3b449b, type: 2}
+  screenshot: {fileID: 21300000, guid: 38516bd12e9e54c0abdb79a648446c4f, type: 3}
   visited: 0
-  locationName: 
+  locationName: (3,2) -> (2,2)

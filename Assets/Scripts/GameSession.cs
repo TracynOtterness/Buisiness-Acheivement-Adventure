@@ -52,6 +52,7 @@ public class GameSession : MonoBehaviour {
             gameSession = this;
             DontDestroyOnLoad(gameObject);
             originalSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            currentLevel = ScoreKeeper.currentLevel;
         }
         else
         {
@@ -64,7 +65,6 @@ public class GameSession : MonoBehaviour {
         livesText.text = playerLives.ToString();
         coinsText.text = coins.ToString();
         GetReferences();
-        currentLevel = ScoreKeeper.currentLevel;
         allVisitedGates = new List<Gate>();
     }
 
@@ -324,6 +324,7 @@ public class GameSession : MonoBehaviour {
         print(g);
         AddGate(g);
         print(g.ftls.Length);
+        print(ftls.Length);
 
         for(int i = 0; i < ftls.Length; i++) 
         {
@@ -366,7 +367,11 @@ public class GameSession : MonoBehaviour {
         if (!isFirstLoad)
         {
             QuestManager.questManager.StartCoroutine(QuestManager.questManager.WaitBeforePopulation()); //wait a second for quests to load before making them permanent
-            Music.ChangeSong(FindObjectOfType<SceneDataHolder>().data.musicType);
+            Music.ChangeSong(FindObjectOfType<SceneDataHolder>().data);
+        }
+        else
+        {
+            Music.RemoveTempPlayer();
         }
         isFirstLoad = false;
     }
@@ -398,7 +403,7 @@ public class GameSession : MonoBehaviour {
     {
         Destroy(FastTravelReset.ftr.gameObject);
         Destroy(MasterSceneData.masterSceneData.gameObject);
-
+        PauseMenu.ResetObjectiveProgress();
         Destroy(levelCanvas.gameObject);
         QuestManager.activeQuests.Clear();
         Destroy(QuestManager.questManager.gameObject);

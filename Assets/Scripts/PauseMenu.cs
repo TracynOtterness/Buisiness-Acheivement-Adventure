@@ -225,6 +225,8 @@ public class PauseMenu : MonoBehaviour {
     public static void IncreaseCheckpointCount()
     {
         currentCheckpoints++;
+        print(currentExplorationLevel);
+        print(totalCheckpoints);
         if ((float)currentCheckpoints/totalCheckpoints >= explorationLevelRequirements[currentExplorationLevel + 1])
         {
             currentExplorationLevel++;
@@ -252,7 +254,6 @@ public class PauseMenu : MonoBehaviour {
     public static KBUI GetNextKBUI()
     {
         kBUIsNumber++;
-        print(kBUIsNumber);
         return kBUIs[kBUIsNumber];
     }
 
@@ -374,10 +375,25 @@ public class PauseMenu : MonoBehaviour {
     static void CheckIfNextLevelAvailable()
     {
         objectivesTotal++;
-        print(objectivesTotal);
+        print("Knowledge bytes: " + currentKBCount);
+        print("KB level: " + currentKBLevel);
+        print("Side Quests: " + currentSideQuestCount);
+        print("SQ level: " + currentSideQuestLevel);
+        print("Checkpoints passed: " + currentCheckpoints);
+        print("current exploration level: " + currentExplorationLevel);
+        print("Objectives total: " + objectivesTotal);
+
         if (objectivesTotal >= 10 && currentKBLevel >= 1 && currentSideQuestLevel >=1 && currentExplorationLevel >=1)
         {
             canAdvanceToNextLevel = true;
+            Portal[] portals = FindObjectsOfType<Portal>();
+            foreach(Portal p in portals)
+            {
+                if (p.NextLevelPortal)
+                {
+                    p.OpenPortalIfObjectivesComplete();
+                }
+            }
         }
     }
 
@@ -392,6 +408,9 @@ public class PauseMenu : MonoBehaviour {
         currentKBLevel = 0;
         currentSideQuestLevel = 0;
         currentExplorationLevel = 0;
+        kBUIsNumber = -1;
+        objectivesTotal = 3;
+        canAdvanceToNextLevel = false;
     }
 
 }

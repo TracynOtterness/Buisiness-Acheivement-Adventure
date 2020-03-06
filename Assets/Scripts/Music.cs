@@ -7,6 +7,7 @@ public class Music : MonoBehaviour {
     [SerializeField] AudioClip[] audioClips;
     static AudioSource audioSource;
     static Music music;
+    static int lastScene;
 
     private void Awake()
     {
@@ -15,7 +16,8 @@ public class Music : MonoBehaviour {
             music = this;
             DontDestroyOnLoad(this.gameObject);
             audioSource = GetComponent<AudioSource>();
-            ChangeSong(FindObjectOfType<SceneDataHolder>().data.musicType);
+            ChangeSong(FindObjectOfType<SceneDataHolder>().data);
+            lastScene = FindObjectOfType<SceneDataHolder>().data.buildIndex;
         }
         else
         {
@@ -23,10 +25,30 @@ public class Music : MonoBehaviour {
         }
     }
 
-    public static void ChangeSong(int song)
+    public static void RemoveTempPlayer()
     {
-        audioSource.clip = Music.music.audioClips[song];
-        audioSource.Play();
+        try
+        {
+            GameObject objectToDestroy = FindObjectOfType<TempMusic>().gameObject;
+            if (objectToDestroy != null)
+            {
+                Destroy(FindObjectOfType<TempMusic>().gameObject);
+            }
+        }
+        catch 
+        {
+            print("not the first level");
+        }
+    }
+
+    public static void ChangeSong(SceneData scene)
+    {
+        if(scene.buildIndex != lastScene)
+        {
+            audioSource.clip = Music.music.audioClips[scene.musicType];
+            audioSource.Play();
+            lastScene = scene.buildIndex;
+        }
     }
 
     private void Update()

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Levels/Level - Leader/Leader (2,2).unity
+- path: Assets/Levels/Level - Buisiness/Buisiness (3,2).unity
   isLoaded: 1
   isActive: 1

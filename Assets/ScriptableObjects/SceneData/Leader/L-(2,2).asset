@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eecc5712fa36474494a513c6c97d4c2, type: 3}
+  m_Name: L-(2,2)
+  m_EditorClassIdentifier: 
+  buildIndex: 15
+  xCoordinate: 2
+  yCoordinate: 2
+  musicType: 0
+  fastTravelLocations:
+  - {fileID: 11400000, guid: 6e8a95607d1504e8d93ea3168d45f68c, type: 2}
+  - {fileID: 0}

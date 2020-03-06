@@ -1,11 +1,11 @@
 OSXStandalone
 PlayerPath?
-/Users/tracyn/Downloads/Buisiness Acheivement Adventure.app
+/Applications/Buisiness Acheivement Adventure1.app
 SceneListBegin?
 Assets/Levels/Start_Menu.unity
 Assets/Levels/Credits.unity
 Assets/Levels/HowToPlay.unity
-Assets/Levels/Level - Buisiness/Scene Base.unity
+Assets/Levels/Level - Leader/Scene Base.unity
 Assets/Levels/Test/1-(2,2).unity
 Assets/Levels/Test/1-(1,2).unity
 Assets/Levels/Test/1-(2,3).unity
@@ -17,6 +17,7 @@ Assets/Levels/Level - Future/Future(2,0).unity
 Assets/Levels/Level - Buisiness/Buisiness (2,2).unity
 Assets/Levels/Level - Buisiness/Buisiness (3,2).unity
 Assets/Levels/Level - Buisiness/Buisiness (1,2).unity
+Assets/Levels/Level - Leader/Leader (2,2).unity
 SceneListEnd?
 9b9c71cf06a525199c2eb4d3be433bc2 Assembly-CSharp.dll:Cinemachine.CinemachineStateDrivenCamera
 5f27f76d9739e6cca1547706b0bb655e Assembly-CSharp.dll:.Portal
@@ -161,6 +162,7 @@ b99d18372e84fd49f008102636e9f5ac Assembly-CSharp.dll:.FastTravelUIButton
 ed9279a9d1042bde3a6ae6cd0c1a92fa Assembly-CSharp.dll:Cinemachine.CinemachinePOV
 89b958aa54245d219621dad837f1e66f Assembly-CSharp.dll:.Flag
 61a13d8f72f69fbb8c87ee8c414b086f Assembly-CSharp.dll:Cinemachine.CinemachineOrbitalTransposer
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TempMusic
 c261e943c1efad142d715ca930c9b7c6 Assembly-CSharp.dll:Cinemachine.CinemachineComposer
 da18493fc2b5ed12bca5ff205fed5a76 Assembly-CSharp.dll:.ScoreKeeper
 253aa7c97d0743cc9b91d5116db69272 Assembly-CSharp.dll:Cinemachine.CinemachineDollyCart

@@ -91,7 +91,6 @@ public class Player : MonoBehaviour
         {
             myRigidbody.velocity = new Vector2(Input.GetAxis("Horizontal") * runSpeed, myRigidbody.velocity.y);
             bool playerIsMoving = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
-            if (playerIsMoving) { print("Running from BACKDRIFT"); }
             myAnimator.SetBool("Running", playerIsMoving);
         }
     }
@@ -119,7 +118,6 @@ public class Player : MonoBehaviour
         bool canWallJump = Input.GetButtonDown("Jump") && bodyCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) && !feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
         if (canWallJump)
         {
-            print("walljump");
             myRigidbody.velocity = new Vector2(wallJumpXSpeed * Mathf.Sign(transform.localScale.x * -1f), wallJumpYSpeed);
         }
     }
@@ -140,7 +138,6 @@ public class Player : MonoBehaviour
 
         if (canDrift)
         {
-            print("Running from BACKDRIFT");
             Vector3 driftForce = new Vector3(aerialDriftSpeed * Input.GetAxis("Horizontal"), 0, 0);
             myRigidbody.AddForce(driftForce, ForceMode2D.Force);
             bool playerIsMoving = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
@@ -163,7 +160,6 @@ public class Player : MonoBehaviour
             myRigidbody.AddForce(driftForce, ForceMode2D.Force);
             bool playerIsMoving = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
             if (playerIsMoving) {  }
-            print("Running from SHORTDRIFT");
             myAnimator.SetBool("Running", playerIsMoving);
         }
     }

@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2de266301d2247189df937c860644a1, type: 3}
   m_Name: Cooridoor exit
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
-  nativeScene: {fileID: 0}
-  screenshot: {fileID: 0}
-  visited: 0
-  locationName: 
+  position: {x: -50.13618, y: 14.467361, z: 0}
+  nativeScene: {fileID: 11400000, guid: cb7dc38f808b241e480f384260d762be, type: 2}
+  screenshot: {fileID: 21300000, guid: 4a65ee0cf195d405caf6587993006ebc, type: 3}
+  visited: 1
+  locationName: Ladder Hall Exit

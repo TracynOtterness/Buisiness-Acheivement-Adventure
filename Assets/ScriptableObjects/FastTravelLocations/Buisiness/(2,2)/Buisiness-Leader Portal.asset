@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2de266301d2247189df937c860644a1, type: 3}
   m_Name: Buisiness-Leader Portal
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
-  nativeScene: {fileID: 0}
-  screenshot: {fileID: 0}
+  position: {x: -5.51, y: 67.96324, z: 0}
+  nativeScene: {fileID: 11400000, guid: 0e9c063dc152e42608d1780621705085, type: 2}
+  screenshot: {fileID: 21300000, guid: 10875e7a8211e453eac0e95721403df9, type: 3}
   visited: 0
-  locationName: 
+  locationName: Portal (Buisiness-Leader)
