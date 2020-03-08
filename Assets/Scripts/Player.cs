@@ -119,6 +119,7 @@ public class Player : MonoBehaviour
         if (canWallJump)
         {
             myRigidbody.velocity = new Vector2(wallJumpXSpeed * Mathf.Sign(transform.localScale.x * -1f), wallJumpYSpeed);
+            myAnimator.SetBool("Running", true);
         }
     }
 
@@ -196,11 +197,13 @@ public class Player : MonoBehaviour
 
     public void SetCheckpoint(Vector3 newSpawnPosition)
     {
+        print("SetCheckpoint");
         spawnPosition = newSpawnPosition;
     }
 
     public void Respawn()
     {
+        print("Respawn");
         transform.position = spawnPosition;
         isAlive = true;
         myAnimator.SetTrigger("Respawn");
@@ -208,6 +211,7 @@ public class Player : MonoBehaviour
 
     public void SetupSpawnPosition(Vector3 vector)
     {
+        print("SetupSpawnPosition");
         spawnPosition = vector;
         transform.position = spawnPosition;
     }

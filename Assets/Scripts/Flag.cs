@@ -16,7 +16,6 @@ public class Flag : MonoBehaviour {
 
     private void Awake()
     {
-        print(location);
         location.position = gameObject.transform.position;
         location.nativeScene = FindObjectOfType<SceneDataHolder>().data;
         location.locationName = locationName;
@@ -37,7 +36,6 @@ public class Flag : MonoBehaviour {
         {
             passed = true;
             animator.SetBool("passed", true);
-            FindObjectOfType<Player>().SetCheckpoint(transform.position);
         }
         print(FastTravelReset.ftr);
         if (!FastTravelReset.ftr.fastTravelLocations.Contains(location))
@@ -47,7 +45,14 @@ public class Flag : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (passed) { return; }
+        if (passed)
+        {
+            if(collision.gameObject.GetComponent<Player>() != null)
+            {
+                collision.gameObject.GetComponent<Player>().SetCheckpoint(transform.position);
+            }
+            return;
+        }
         if (collision.gameObject.GetComponent<Player>() == null) { return; }
         passed = true;
         location.visited = true;

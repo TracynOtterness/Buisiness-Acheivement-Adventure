@@ -31,8 +31,6 @@ public class Quest : MonoBehaviour {
 
     private void ConstructQuestRequirements()
     {
-        print(questInfo.name + " on " + transform.name);
-        print("questrequirementnames.length:" + questRequirementNames.Length);
         for (int i = 0; i < questRequirementNames.Length; i++)
         {
             questRequirements.Add(questRequirementNames[i], questRequirementData[i]);

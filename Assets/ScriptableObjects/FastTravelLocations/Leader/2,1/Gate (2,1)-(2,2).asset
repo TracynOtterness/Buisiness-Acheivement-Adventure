@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position: {x: -6, y: 11, z: 0}
   nativeScene: {fileID: 11400000, guid: b95d389bcb738433a85811273078acc2, type: 2}
-  screenshot: {fileID: 0}
-  visited: 1
+  screenshot: {fileID: 21300000, guid: 5908c1761bde4402abc9f140aed0a31d, type: 3}
+  visited: 0
   locationName: Gate (2,1) -> (2,2)

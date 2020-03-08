@@ -32,9 +32,9 @@ public class GameSession : MonoBehaviour {
     static SceneData currentScene;
     static List<SceneData> allVisitedScenes;
     static List<Gate> allVisitedGates;
-    [SerializeField] static FastTravelLocation fastTravelLocation;
+    static FastTravelLocation fastTravelLocation;
 
-    public static int[] TotalCheckpointsInDifferentLevels = { 6,11,11,11 };
+    public static int[] TotalCheckpointsInDifferentLevels = { 6,11,16,11 };
 
     int continues = 0;
     bool pauseMenuIsUp;
@@ -353,6 +353,7 @@ public class GameSession : MonoBehaviour {
 
         if(fastTravelLocation != null)
         {
+            print(fastTravelLocation.name);
             print("Changing player spawnPosition to " + fastTravelLocation.position);
             FindObjectOfType<Player>().SetupSpawnPosition(fastTravelLocation.position);
         }

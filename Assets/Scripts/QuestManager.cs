@@ -77,7 +77,6 @@ public class QuestManager : MonoBehaviour {
         List<Quest> newQuestsList = ArrayToList(newQuests); //list of new quests to add
         List<Quest> duplicateQuestsList = new List<Quest>();//list of duplicate quests
         List<Quest> existingQuestsList = new List<Quest>();//list of quests that the duplicate quests are duplicates of
-        print(newQuestsList.Count);
         for (int i = newQuestsList.Count - 1; i >= 0; i--)
         {
             int isNewQuest = CheckIfNewQuest(newQuestsList[i]);
@@ -85,22 +84,17 @@ public class QuestManager : MonoBehaviour {
             {
                 if(isNewQuest == 1) //it's a duplicate, and the NPC needs a quest
                 {
-                    print("updating duplicate and old quest lists");
                     duplicateQuestsList.Add(newQuestsList[i]);
                     existingQuestsList.Add(GetExistingQuest(newQuestsList[i]));
                 }
                 newQuestsList.Remove(newQuestsList[i]);
-                print("continue");
                 continue;
             }
-            print("adding " + newQuestsList[i].questRequirements.Count + " flags from " + newQuestsList[i].questInfo.name);
             foreach (KeyValuePair<string, FlagData> flag in newQuestsList[i].questRequirements)
             {
                 questFlags.Add(flag.Key, flag.Value);
             }
         }
-        print("New Quests: " + newQuestsList.Count);
-        print("Old Quests: " + duplicateQuestsList.Count);
         print("Duplicate Quests: " + existingQuestsList.Count);
         StoreQuests(newQuestsList, duplicateQuestsList, existingQuestsList);
     }
@@ -118,21 +112,17 @@ public class QuestManager : MonoBehaviour {
     private int CheckIfNewQuest(Quest q)
     {
         if (allQuests == null) { return 0; }
-        print("CheckIfNewQuest on quest: " + q.questInfo.name);
         if (q.transform.parent == transform)
         {
-            print("old quest");
             return 0;
         }
         foreach (Quest existingQuest in allQuests)
         {
             if (q.questInfo.name == existingQuest.questInfo.name)
             {
-                print("duplicate");
                 return 1;
             }
         }
-        print("new quest");
         return 2;
     }
 
@@ -145,7 +135,6 @@ public class QuestManager : MonoBehaviour {
                 return existingQuest;
             }
         }
-        print("not a duplicate");
         return null;
     }
 
@@ -153,7 +142,6 @@ public class QuestManager : MonoBehaviour {
     {
         activeQuests.Add(questToAdd);
         questToAdd.CheckIfComplete();
-        print("Accepted quest: '" + questToAdd.questInfo.name + "'");
     }
 
     public static void UpdateQuestFlag(string flagName)
@@ -169,7 +157,6 @@ public class QuestManager : MonoBehaviour {
         }
         for(int i = activeQuests.Count - 1; i >= 0; i--)
         {
-            print(activeQuests[i].questInfo.name);
             if (!activeQuests[i].complete)
             {
                 activeQuests[i].CheckIfComplete();

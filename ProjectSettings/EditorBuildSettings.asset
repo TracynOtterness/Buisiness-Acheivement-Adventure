@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Levels/HowToPlay.unity
     guid: 5e077dcc3d5b7443bbd3636f87d8f24c
   - enabled: 1
-    path: Assets/Levels/Level - Leader/Scene Base.unity
+    path: Assets/Levels/Level - America/Scene Base.unity
     guid: 7dc46016ebd3045f2a220328c9a4a168
   - enabled: 1
     path: Assets/Levels/Test/1-(2,2).unity
@@ -65,4 +65,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Level - America/America(2,2).unity
     guid: b7e1ea39aa5cf49efadeda218b39526b
+  - enabled: 1
+    path: Assets/Levels/Level - America/America(1,2).unity
+    guid: 551540ad3e7324a939a57259446a485c
+  - enabled: 1
+    path: Assets/Levels/Level - America/America(2,1).unity
+    guid: 35aaf9a5024934e99b79a3935f9747f1
+  - enabled: 1
+    path: Assets/Levels/Level - America/America(2,3).unity
+    guid: 84bd981cedca34eb2b6d89226999449e
+  - enabled: 1
+    path: Assets/Levels/Level - America/America(3,2).unity
+    guid: a1ef6d39ca97e4a8db18cbbbdb08ab7e
+  - enabled: 1
+    path: Assets/Levels/Thanks_For_Playing.unity
+    guid: e152176cb89f5455b87f8cfe4e24d757
   m_configObjects: {}

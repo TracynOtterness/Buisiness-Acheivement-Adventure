@@ -371,6 +371,21 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 902148774}
     m_Modifications:
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questInfo.sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementData.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementNames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4899972022520142, guid: 4f97719d3233a4fe1b1285bc6702a3c6, type: 2}
       propertyPath: m_LocalPosition.x
       value: 8.070472
@@ -425,6 +440,89 @@ Prefab:
       value: 
       objectReference: {fileID: 21300002, guid: 1ac2fbaf5d923497dbbc3750f635bbfd,
         type: 3}
+    - target: {fileID: 114398028003285700, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: dialogue.name
+      value: Mark
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398028003285700, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: In the great maze, there are 3 locations where you can see the saphire
+        cave at the end, but cannot reach it
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398028003285700, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: I call these areas "windows"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398028003285700, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: When I tried to get a saphire on my own, I reached all of these windows,
+        but never found the prize
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398028003285700, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: If you go to these windows as well and experience the frustration, I
+        will have some closure.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementNames.Array.data[0]
+      value: Window1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementData.Array.data[0].requirement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementNames.Array.data[1]
+      value: Window2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementNames.Array.data[2]
+      value: Window3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementData.Array.data[0].isBoolean
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementData.Array.data[1].isBoolean
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementData.Array.data[2].isBoolean
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questInfo.name
+      value: The 3 Windows
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questInfo.sentences.Array.data[0]
+      value: Locate the 3 Windows in the Great Maze in 3,1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questInfo.sentences.Array.data[1]
+      value: Locate the 3 Windows in the Great Maze in 3,1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questInfo.sentences.Array.data[2]
+      value: Locate the 3 Windows in the Great Maze in 3,1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f97719d3233a4fe1b1285bc6702a3c6, type: 2}
   m_IsPrefabParent: 0
@@ -484,6 +582,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 74621727}
+--- !u!1 &74621729 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 74621727}
+--- !u!114 &74621730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 74621729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &104136009
 Prefab:
   m_ObjectHideFlags: 0
@@ -535,6 +651,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 104136009}
+--- !u!1 &104136011 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 104136009}
+--- !u!114 &104136012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104136011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &130820084
 Prefab:
   m_ObjectHideFlags: 0
@@ -31665,6 +31799,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 150176461}
+--- !u!1 &150176463 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 150176461}
+--- !u!114 &150176464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 150176463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &162104135
 Prefab:
   m_ObjectHideFlags: 0
@@ -31774,6 +31926,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 183772593}
+--- !u!1 &183772595 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 183772593}
+--- !u!114 &183772596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183772595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &221570907
 Prefab:
   m_ObjectHideFlags: 0
@@ -31865,6 +32035,11 @@ Prefab:
       propertyPath: m_Name
       value: KnowledgeByte 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114668430271213764, guid: e3a4001f1021f41329815c56aba97dd2,
+        type: 2}
+      propertyPath: trivia.sentences.Array.data[0]
+      value: At one point in time, Marvel owned the rights to the word "Zombie"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3a4001f1021f41329815c56aba97dd2, type: 2}
   m_IsPrefabParent: 0
@@ -31942,6 +32117,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 328401017}
+--- !u!1 &328401019 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 328401017}
+--- !u!114 &328401020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 328401019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &407611170
 Prefab:
   m_ObjectHideFlags: 0
@@ -32142,7 +32335,7 @@ Prefab:
     - target: {fileID: 224499833493742526, guid: 2a9845e95a760486696714330f09b203,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000055960936
+      value: 0.0000660501
       objectReference: {fileID: 0}
     - target: {fileID: 224845427459851362, guid: 2a9845e95a760486696714330f09b203,
         type: 2}
@@ -32313,6 +32506,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 419999912}
+--- !u!1 &419999914 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 419999912}
+--- !u!114 &419999915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 419999914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &424759914
 Prefab:
   m_ObjectHideFlags: 0
@@ -32406,6 +32617,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 477555808}
+--- !u!1 &477555810 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 477555808}
+--- !u!114 &477555811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 477555810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1 &529784793
 GameObject:
   m_ObjectHideFlags: 0
@@ -32490,6 +32719,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 569486714}
+--- !u!1 &569486716 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 569486714}
+--- !u!114 &569486717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 569486716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &593211014
 Prefab:
   m_ObjectHideFlags: 0
@@ -32583,6 +32830,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 625164762}
+--- !u!1 &625164764 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 625164762}
+--- !u!114 &625164765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 625164764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &690198767
 Prefab:
   m_ObjectHideFlags: 0
@@ -32698,6 +32963,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 722164524}
+--- !u!1 &722164526 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 722164524}
+--- !u!114 &722164527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 722164526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &723134044
 Prefab:
   m_ObjectHideFlags: 0
@@ -32999,6 +33282,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 801921565}
+--- !u!1 &801921567 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 801921565}
+--- !u!114 &801921568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 801921567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1 &825743010
 GameObject:
   m_ObjectHideFlags: 0
@@ -48541,6 +48842,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 836836791}
+--- !u!1 &836836793 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 836836791}
+--- !u!114 &836836794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 836836793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &871880195
 Prefab:
   m_ObjectHideFlags: 0
@@ -48760,6 +49079,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 917246828}
+--- !u!1 &917246830 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 917246828}
+--- !u!114 &917246831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 917246830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1 &960084770
 GameObject:
   m_ObjectHideFlags: 0
@@ -49517,6 +49854,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 981371430}
+--- !u!1 &981371432 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 981371430}
+--- !u!114 &981371433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 981371432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &989886516
 Prefab:
   m_ObjectHideFlags: 0
@@ -49568,6 +49923,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 989886516}
+--- !u!1 &989886518 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 989886516}
+--- !u!114 &989886519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 989886518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1048069386
 Prefab:
   m_ObjectHideFlags: 0
@@ -49619,6 +49992,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1048069386}
+--- !u!1 &1048069388 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1048069386}
+--- !u!114 &1048069389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1048069388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1 &1070414498
 GameObject:
   m_ObjectHideFlags: 0
@@ -50149,6 +50540,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1159871868}
+--- !u!1 &1159871870 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1159871868}
+--- !u!114 &1159871871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1159871870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1165232375
 Prefab:
   m_ObjectHideFlags: 0
@@ -50264,6 +50673,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1229095766}
+--- !u!1 &1229095768 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1229095766}
+--- !u!114 &1229095769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1229095768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1265525591
 Prefab:
   m_ObjectHideFlags: 0
@@ -50302,6 +50729,12 @@ Prefab:
     - target: {fileID: 4943681767012032, guid: e3a4001f1021f41329815c56aba97dd2, type: 2}
       propertyPath: m_RootOrder
       value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 114668430271213764, guid: e3a4001f1021f41329815c56aba97dd2,
+        type: 2}
+      propertyPath: trivia.sentences.Array.data[0]
+      value: Before Google settled on the name "Google", it's working name was "BackRub."
+        Imagine looking something up being called "backrubbing!"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3a4001f1021f41329815c56aba97dd2, type: 2}
@@ -50380,6 +50813,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1266135323}
+--- !u!1 &1266135325 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1266135323}
+--- !u!114 &1266135326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1266135325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1281394103
 Prefab:
   m_ObjectHideFlags: 0
@@ -50431,6 +50882,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1281394103}
+--- !u!1 &1281394105 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1281394103}
+--- !u!114 &1281394106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1281394105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1315348789
 Prefab:
   m_ObjectHideFlags: 0
@@ -50672,6 +51141,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1394735647}
+--- !u!1 &1394735649 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1394735647}
+--- !u!114 &1394735650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1394735649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1462174935
 Prefab:
   m_ObjectHideFlags: 0
@@ -50723,6 +51210,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1462174935}
+--- !u!1 &1462174937 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1462174935}
+--- !u!114 &1462174938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1462174937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1480243625
 Prefab:
   m_ObjectHideFlags: 0
@@ -50774,6 +51279,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1480243625}
+--- !u!1 &1480243627 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1480243625}
+--- !u!114 &1480243628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1480243627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1565277211
 Prefab:
   m_ObjectHideFlags: 0
@@ -50820,11 +51343,11 @@ Prefab:
       objectReference: {fileID: 132776938}
     - target: {fileID: 4395727525908212, guid: f4940489a510c4660a851fe80d41857a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -15.445829
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4395727525908212, guid: f4940489a510c4660a851fe80d41857a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.0650234
+      value: 29.916098
       objectReference: {fileID: 0}
     - target: {fileID: 114792033672301200, guid: f4940489a510c4660a851fe80d41857a,
         type: 2}
@@ -50833,11 +51356,11 @@ Prefab:
       objectReference: {fileID: 2089787582}
     - target: {fileID: 4334459771973102, guid: f4940489a510c4660a851fe80d41857a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -15.44
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4334459771973102, guid: f4940489a510c4660a851fe80d41857a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.7160988
+      value: 29.916098
       objectReference: {fileID: 0}
     - target: {fileID: 4395727525908212, guid: f4940489a510c4660a851fe80d41857a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -50957,6 +51480,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1655761692}
+--- !u!1 &1655761694 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1655761692}
+--- !u!114 &1655761695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1655761694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1725130209
 Prefab:
   m_ObjectHideFlags: 0
@@ -51008,6 +51549,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1725130209}
+--- !u!1 &1725130211 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1725130209}
+--- !u!114 &1725130212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1725130211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1744644559
 Prefab:
   m_ObjectHideFlags: 0
@@ -51059,6 +51618,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1744644559}
+--- !u!1 &1744644561 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1744644559}
+--- !u!114 &1744644562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1744644561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1762972383
 Prefab:
   m_ObjectHideFlags: 0
@@ -51110,6 +51687,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1762972383}
+--- !u!1 &1762972385 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1762972383}
+--- !u!114 &1762972386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1762972385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1797881564
 Prefab:
   m_ObjectHideFlags: 0
@@ -51161,6 +51756,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1797881564}
+--- !u!1 &1797881566 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1797881564}
+--- !u!114 &1797881567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1797881566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1808724034
 Prefab:
   m_ObjectHideFlags: 0
@@ -51212,6 +51825,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1808724034}
+--- !u!1 &1808724036 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1808724034}
+--- !u!114 &1808724037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1808724036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1814026614
 Prefab:
   m_ObjectHideFlags: 0
@@ -51259,6 +51890,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1814026614}
+--- !u!1 &1814026616 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1814026614}
+--- !u!114 &1814026617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1814026616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1001 &1833319672
 Prefab:
   m_ObjectHideFlags: 0
@@ -51310,6 +51959,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 1833319672}
+--- !u!1 &1833319674 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1833319672}
+--- !u!114 &1833319675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1833319674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!1 &1841570267
 GameObject:
   m_ObjectHideFlags: 0
@@ -51778,6 +52445,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 2088608413}
+--- !u!1 &2088608415 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 2088608413}
+--- !u!114 &2088608416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2088608415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision
 --- !u!4 &2089787582 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4862054342986306, guid: 2e032274ee8a145828c3ad9d1e4c8c06,
@@ -51792,11 +52477,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4862054342986306, guid: 2e032274ee8a145828c3ad9d1e4c8c06, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -15.44
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4862054342986306, guid: 2e032274ee8a145828c3ad9d1e4c8c06, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 12.3
+      value: 38.5
       objectReference: {fileID: 0}
     - target: {fileID: 4862054342986306, guid: 2e032274ee8a145828c3ad9d1e4c8c06, type: 2}
       propertyPath: m_LocalPosition.z
@@ -51832,6 +52517,26 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 902148774}
     m_Modifications:
+    - target: {fileID: 114398028003285700, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: dialogue.sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questInfo.sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementData.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementNames.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4899972022520142, guid: 4f97719d3233a4fe1b1285bc6702a3c6, type: 2}
       propertyPath: m_LocalPosition.x
       value: -13.749
@@ -51886,6 +52591,67 @@ Prefab:
       value: 
       objectReference: {fileID: 21300002, guid: 1ac2fbaf5d923497dbbc3750f635bbfd,
         type: 3}
+    - target: {fileID: 114398028003285700, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: dialogue.name
+      value: Devin
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398028003285700, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: In 1,1 there are 2 very well-hidden secret areas.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398028003285700, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: Few have ever seen both, but me and my brother who lives there encourage
+        anybody who is up to the challenge to try to find them
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398028003285700, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114398028003285700, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementNames.Array.data[0]
+      value: UltraSecretArea1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementData.Array.data[0].isBoolean
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questInfo.name
+      value: 1,1 secret areas
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questInfo.sentences.Array.data[0]
+      value: Locate the secret areas in 1,1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementNames.Array.data[1]
+      value: UltraSecretArea2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementData.Array.data[1].isBoolean
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questInfo.sentences.Array.data[1]
+      value: Locate the secret areas in 1,1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f97719d3233a4fe1b1285bc6702a3c6, type: 2}
   m_IsPrefabParent: 0
@@ -52073,3 +52839,21 @@ Transform:
   m_PrefabParentObject: {fileID: 4877704856550250, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
     type: 2}
   m_PrefabInternal: {fileID: 2139131415}
+--- !u!1 &2139131417 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1456633461381956, guid: 4e0e4a530d4f04b3a9d2e13906307b8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 2139131415}
+--- !u!114 &2139131418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2139131417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f98d2cebc1746258cc810c61708aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlagName: Coin
+  triggerType: Collision

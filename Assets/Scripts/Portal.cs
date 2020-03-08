@@ -48,12 +48,6 @@ public class Portal : MonoBehaviour {
         }
         else
         {
-            print("Gate ftls:");
-            print(gate.ftls[0]);
-            print(gate.ftls[1]);
-            print("Gate Scenes:");
-            print(gate.scenes[0]);
-            print(gate.scenes[1]);
         }
     }
 

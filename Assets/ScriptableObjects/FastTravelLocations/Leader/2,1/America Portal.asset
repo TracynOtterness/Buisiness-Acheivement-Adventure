@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2de266301d2247189df937c860644a1, type: 3}
   m_Name: America Portal
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
-  nativeScene: {fileID: 0}
-  screenshot: {fileID: 0}
+  position: {x: -3, y: 39, z: 0}
+  nativeScene: {fileID: 11400000, guid: b95d389bcb738433a85811273078acc2, type: 2}
+  screenshot: {fileID: 21300000, guid: 10875e7a8211e453eac0e95721403df9, type: 3}
   visited: 0
-  locationName: 
+  locationName: America Portal

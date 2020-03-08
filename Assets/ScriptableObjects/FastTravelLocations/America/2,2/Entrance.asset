@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2de266301d2247189df937c860644a1, type: 3}
   m_Name: Entrance
   m_EditorClassIdentifier: 
-  position: {x: -6, y: 12, z: 0}
+  position: {x: 4, y: 31, z: 0}
   nativeScene: {fileID: 11400000, guid: 600a1a1081d4e4f6baf1d2f68fcd4a97, type: 2}
   screenshot: {fileID: 0}
   visited: 1
