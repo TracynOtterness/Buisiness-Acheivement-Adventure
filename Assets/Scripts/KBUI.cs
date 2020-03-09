@@ -55,6 +55,7 @@ public class KBUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler{
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        print("OnPointerEnter on + " + gameObject);
         if (collected)
         {
             nameText.text = trivia.name;

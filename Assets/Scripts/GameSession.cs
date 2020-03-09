@@ -364,7 +364,6 @@ public class GameSession : MonoBehaviour {
         {
             npc.interactibilityIcon = ii;
         }
-
         if (!isFirstLoad)
         {
             QuestManager.questManager.StartCoroutine(QuestManager.questManager.WaitBeforePopulation()); //wait a second for quests to load before making them permanent
@@ -373,6 +372,7 @@ public class GameSession : MonoBehaviour {
         else
         {
             Music.RemoveTempPlayer();
+            Music.ChangeSong(FindObjectOfType<SceneDataHolder>().data, true);
         }
         isFirstLoad = false;
     }
@@ -407,6 +407,7 @@ public class GameSession : MonoBehaviour {
         PauseMenu.ResetObjectiveProgress();
         Destroy(levelCanvas.gameObject);
         QuestManager.activeQuests.Clear();
+        QuestManager.ResetFlags();
         Destroy(QuestManager.questManager.gameObject);
     }
 

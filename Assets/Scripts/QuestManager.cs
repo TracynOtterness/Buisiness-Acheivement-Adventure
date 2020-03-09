@@ -211,4 +211,9 @@ public class QuestManager : MonoBehaviour {
         }
         return returnValue;
     }
+
+    public static void ResetFlags()
+    {
+        questFlags.Clear();
+    }
 }

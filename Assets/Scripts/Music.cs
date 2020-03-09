@@ -7,7 +7,7 @@ public class Music : MonoBehaviour {
     [SerializeField] AudioClip[] audioClips;
     static AudioSource audioSource;
     static Music music;
-    static int lastScene;
+    static int lastScene = -1;
 
     private void Awake()
     {
@@ -16,8 +16,8 @@ public class Music : MonoBehaviour {
             music = this;
             DontDestroyOnLoad(this.gameObject);
             audioSource = GetComponent<AudioSource>();
-            ChangeSong(FindObjectOfType<SceneDataHolder>().data);
-            lastScene = FindObjectOfType<SceneDataHolder>().data.buildIndex;
+            lastScene = FindObjectOfType<SceneDataHolder>().data.musicType;
+            ChangeSong(FindObjectOfType<SceneDataHolder>().data, true);
         }
         else
         {
@@ -41,13 +41,20 @@ public class Music : MonoBehaviour {
         }
     }
 
-    public static void ChangeSong(SceneData scene)
+    public static void ChangeSong(SceneData scene, bool awake = false)
     {
-        if(scene.buildIndex != lastScene)
+        if(lastScene == -1) { return; }
+        if(scene.musicType != lastScene)
         {
             audioSource.clip = Music.music.audioClips[scene.musicType];
             audioSource.Play();
-            lastScene = scene.buildIndex;
+            lastScene = scene.musicType;
+        }
+        else if (awake)
+        {
+            audioSource.clip = Music.music.audioClips[scene.musicType];
+            audioSource.Play();
+            lastScene = scene.musicType;
         }
     }
 

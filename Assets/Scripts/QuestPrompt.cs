@@ -22,6 +22,7 @@ public class QuestPrompt : MonoBehaviour {
     {
         storedQuest = questToDisplay;
         myAnimator.SetBool("isDisplaying", true);
+        FindObjectOfType<Player>().controllable = false;
         profile.sprite = questToDisplay.questInfo.avatar;
         questName.text = questToDisplay.questInfo.name;
         bodyText.text = questToDisplay.questInfo.sentences[0];
@@ -30,6 +31,7 @@ public class QuestPrompt : MonoBehaviour {
     public void ClosePrompt(bool isAccepted)
     {
         print("close prompt");
+        FindObjectOfType<Player>().controllable = true;
         myAnimator.SetBool("isDisplaying", false);
         if (isAccepted)
         {

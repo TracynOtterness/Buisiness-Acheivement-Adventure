@@ -14,5 +14,5 @@ MonoBehaviour:
   position: {x: 132.56, y: 32.49, z: 0}
   nativeScene: {fileID: 11400000, guid: 583fd291131a047ba824dad5b9caaa9a, type: 2}
   screenshot: {fileID: 21300000, guid: 90790951b1dc5456e9868a17fc261067, type: 3}
-  visited: 1
+  visited: 0
   locationName: Emerald Trial 3

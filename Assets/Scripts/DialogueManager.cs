@@ -13,9 +13,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Text sentenceText;
     [SerializeField] Image portrait;
     [SerializeField] QuestPrompt questPrompt;
+    [SerializeField] float longestCharWidth;
 
     [SerializeField] float autoNextSentenceTime = 3f;
-    [SerializeField] float nextCharacterWaitTime = .5f;
+    float nextCharacterWaitTime = .01f;
     public bool dialoging;
 
     bool typing;
@@ -37,6 +38,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialoging) { return; }
         animator.SetBool("ShowDialogue", true);
+        FindObjectOfType<Player>().controllable = false;
 
         questToGive = quest;
         dialoging = true;
@@ -85,16 +87,28 @@ public class DialogueManager : MonoBehaviour
             if (iterationSentence[0] == ' ') //behavior to prevent awkward text wrapping
             {
                 int j = GetLettersInNextWord(iterationSentence);
-                if (charsOnLine + j > 49)
+                print(j);
+                if(charsOnLine == 47)
                 {
                     sentenceText.text += "\n";
                     iterationSentence = iterationSentence.Substring(1);
                     charsOnLine = 0;
                     continue;
                 }
+                if (charsOnLine + j > 46)
+                {
+                    sentenceText.text += "\n";
+                    iterationSentence = iterationSentence.Substring(1);
+                    charsOnLine = 0;
+                    continue;
+                }
+                else
+                {
+
+                }
             }
             iterationSentence = iterationSentence.Substring(1);
-            yield return new WaitForSeconds(.05f);
+            yield return new WaitForSeconds(nextCharacterWaitTime);
         }
         typing = false;
         CR_AutoNextSentence = StartCoroutine(AutoNextSentence());
@@ -122,6 +136,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         animator.SetBool("ShowDialogue", false);
+        FindObjectOfType<Player>().controllable = true;
         dialoging = false;
         sentences.Clear();
     }

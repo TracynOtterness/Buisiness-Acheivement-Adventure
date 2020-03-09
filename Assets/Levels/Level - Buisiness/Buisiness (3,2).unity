@@ -54722,7 +54722,7 @@ Prefab:
     - target: {fileID: 224499833493742526, guid: 2a9845e95a760486696714330f09b203,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00005258273
+      value: 0.000058731817
       objectReference: {fileID: 0}
     - target: {fileID: 224845427459851362, guid: 2a9845e95a760486696714330f09b203,
         type: 2}
@@ -112366,7 +112366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectionSound: {fileID: 8300000, guid: 484949ed0dc094ea9803c571f598a5b6, type: 3}
   COSAPrefab: {fileID: 1335139538335058, guid: a0b74a2bb72ce49988412f94136f0aa6, type: 2}
-  volume: 0.1
+  volume: 0.2
 --- !u!212 &829297032
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -114875,11 +114875,11 @@ Prefab:
       objectReference: {fileID: 132776938}
     - target: {fileID: 4395727525908212, guid: f4940489a510c4660a851fe80d41857a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 11.4
       objectReference: {fileID: 0}
     - target: {fileID: 4395727525908212, guid: f4940489a510c4660a851fe80d41857a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -8.6
+      value: 34.716095
       objectReference: {fileID: 0}
     - target: {fileID: 114792033672301200, guid: f4940489a510c4660a851fe80d41857a,
         type: 2}
@@ -114896,12 +114896,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4395727525908212, guid: f4940489a510c4660a851fe80d41857a, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 20368985959884102, guid: f4940489a510c4660a851fe80d41857a,
         type: 2}
       propertyPath: orthographic size
-      value: 10
+      value: 4.7
       objectReference: {fileID: 0}
     - target: {fileID: 212998067358600486, guid: f4940489a510c4660a851fe80d41857a,
         type: 2}

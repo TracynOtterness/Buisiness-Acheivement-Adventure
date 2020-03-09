@@ -323,6 +323,7 @@ public class PauseMenu : MonoBehaviour {
                     {
                         GameSession.SetFTL(f);
                         defaultFTLisSet = true;
+                        screenshotImage.sprite = f.screenshot;
                     }
                     GameObject newObj = Instantiate(FastTravelUIPrefab, fastTravelScrollViewContent.transform);
                     newObj.GetComponent<FastTravelUIButton>().location = f;
