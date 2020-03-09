@@ -9,8 +9,12 @@ public class Coin : MonoBehaviour {
     [SerializeField] float volume;
     [SerializeField] GameObject cosaPrefab;
 
+    bool collected;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collected) { return; }
+        collected = true;
         CustomOneShotAudio cosa = Instantiate(cosaPrefab, Camera.main.transform).GetComponent<CustomOneShotAudio>();
         cosa.PlayAudio(coinSound, volume);
         //AudioSource.PlayClipAtPoint(coinSound, Camera.main.transform.position, volume);

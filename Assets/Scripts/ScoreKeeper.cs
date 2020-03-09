@@ -17,7 +17,7 @@ public class ScoreKeeper : MonoBehaviour {
     [SerializeField] Text questsText;
 
 
-	public static int currentLevel = 2;
+	public static int currentLevel = 3;
     public static ScoreKeeper scoreKeeper;
 
     private void Awake()

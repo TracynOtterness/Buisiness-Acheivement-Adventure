@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2de266301d2247189df937c860644a1, type: 3}
   m_Name: Exit
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
-  nativeScene: {fileID: 0}
-  screenshot: {fileID: 0}
+  position: {x: 5.99, y: 80.09, z: 0}
+  nativeScene: {fileID: 11400000, guid: 600a1a1081d4e4f6baf1d2f68fcd4a97, type: 2}
+  screenshot: {fileID: 21300000, guid: 10875e7a8211e453eac0e95721403df9, type: 3}
   visited: 0
-  locationName: 
+  locationName: Exit

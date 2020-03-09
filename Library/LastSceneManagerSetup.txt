@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Levels/Level - Leader/Leader(3,1).unity
+- path: Assets/Levels/Level - America/America(2,3).unity
   isLoaded: 1
   isActive: 1

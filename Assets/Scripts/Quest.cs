@@ -47,7 +47,6 @@ public class Quest : MonoBehaviour {
             print(objective.Key);
             if (objective.Value.isChecked)
             {
-                print("completedObjectives up");
                 completedObjectives++;
             }
         }

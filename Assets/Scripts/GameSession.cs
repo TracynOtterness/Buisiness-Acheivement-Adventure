@@ -34,7 +34,7 @@ public class GameSession : MonoBehaviour {
     static List<Gate> allVisitedGates;
     static FastTravelLocation fastTravelLocation;
 
-    public static int[] TotalCheckpointsInDifferentLevels = { 6,11,16,11 };
+    public static int[] TotalCheckpointsInDifferentLevels = { 6,11,16,18 };
 
     int continues = 0;
     bool pauseMenuIsUp;
