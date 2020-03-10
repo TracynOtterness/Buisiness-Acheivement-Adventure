@@ -53,3 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questHolder: {fileID: 1416896231789692, guid: f8eda5165a241461d8d5b4dc9bf81888,
     type: 2}
+  questCompleteIndicator: {fileID: 0}
+  questCompleteText: {fileID: 0}

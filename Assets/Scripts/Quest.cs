@@ -59,6 +59,7 @@ public class Quest : MonoBehaviour {
     private void QuestComplete()
     {
         PauseMenu.IncreaseSideQuestCount();
+        QuestManager.CompleteQuestIndicator(questInfo.name);
         print("Quest: '" + questInfo.name + "' is complete!");
         //QuestManager.RemoveQuest(this);
         complete = true;

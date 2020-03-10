@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 12.62, y: -11.74}
+  m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!114 &44416712
 MonoBehaviour:
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 8.52, y: 9.59}
+  m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!114 &1130551802
 MonoBehaviour:
@@ -402,7 +402,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 3bc5288c1884745a79e6253f1143482e, type: 3}
     m_FontSize: 114
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 114
     m_Alignment: 3
@@ -422,6 +422,10 @@ MonoBehaviour:
     Space Bar         = Jump
 
     F Key                = interact/Use Portal
+
+    P Key                = Pause Menu
+
+    Enter                = Accept Quest
 
     Mouse              = Use GUI'
 --- !u!222 &1130551803

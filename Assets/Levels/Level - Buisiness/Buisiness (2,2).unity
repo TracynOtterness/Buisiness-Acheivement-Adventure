@@ -40427,7 +40427,7 @@ Prefab:
     - target: {fileID: 224499833493742526, guid: 2a9845e95a760486696714330f09b203,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000043117998
+      value: 0.00006255593
       objectReference: {fileID: 0}
     - target: {fileID: 224885868351754294, guid: 2a9845e95a760486696714330f09b203,
         type: 2}
@@ -40437,6 +40437,17 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a9845e95a760486696714330f09b203, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &407611171 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114058727834442564, guid: 2a9845e95a760486696714330f09b203,
+    type: 2}
+  m_PrefabInternal: {fileID: 407611170}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &407611172 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1415334736547028, guid: 2a9845e95a760486696714330f09b203,
+    type: 2}
+  m_PrefabInternal: {fileID: 407611170}
 --- !u!1001 &424759914
 Prefab:
   m_ObjectHideFlags: 0
@@ -40476,6 +40487,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114839277073976744, guid: 14700c740928a40b085cfcb049495380,
+        type: 2}
+      propertyPath: questCompleteIndicator
+      value: 
+      objectReference: {fileID: 407611172}
+    - target: {fileID: 114839277073976744, guid: 14700c740928a40b085cfcb049495380,
+        type: 2}
+      propertyPath: questCompleteText
+      value: 
+      objectReference: {fileID: 407611171}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14700c740928a40b085cfcb049495380, type: 2}
   m_IsPrefabParent: 0
@@ -72223,12 +72244,12 @@ Prefab:
     - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
         type: 2}
       propertyPath: questRequirementData.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
         type: 2}
       propertyPath: questRequirementNames.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
         type: 2}
@@ -72324,27 +72345,27 @@ Prefab:
     - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
         type: 2}
       propertyPath: questAcceptFlag
-      value: 30CoinsAccept
-      objectReference: {fileID: 0}
-    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
-        type: 2}
-      propertyPath: questRequirementNames.Array.data[0]
-      value: 30CoinsAccept
-      objectReference: {fileID: 0}
-    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
-        type: 2}
-      propertyPath: questRequirementNames.Array.data[1]
-      value: 30Coins
-      objectReference: {fileID: 0}
-    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
-        type: 2}
-      propertyPath: questRequirementData.Array.data[0].requirement
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
         type: 2}
+      propertyPath: questRequirementNames.Array.data[0]
+      value: 30Coins
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementNames.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: questRequirementData.Array.data[0].requirement
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
       propertyPath: questRequirementData.Array.data[0].isBoolean
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
         type: 2}

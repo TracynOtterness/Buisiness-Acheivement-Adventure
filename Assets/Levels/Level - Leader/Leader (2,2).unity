@@ -17406,7 +17406,7 @@ Prefab:
     - target: {fileID: 224499833493742526, guid: 2a9845e95a760486696714330f09b203,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000048771264
+      value: 0.000045535096
       objectReference: {fileID: 0}
     - target: {fileID: 224845427459851362, guid: 2a9845e95a760486696714330f09b203,
         type: 2}
@@ -17531,6 +17531,17 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a9845e95a760486696714330f09b203, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &407611171 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114058727834442564, guid: 2a9845e95a760486696714330f09b203,
+    type: 2}
+  m_PrefabInternal: {fileID: 407611170}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &407611172 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1415334736547028, guid: 2a9845e95a760486696714330f09b203,
+    type: 2}
+  m_PrefabInternal: {fileID: 407611170}
 --- !u!1001 &424759914
 Prefab:
   m_ObjectHideFlags: 0
@@ -17570,6 +17581,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114839277073976744, guid: 14700c740928a40b085cfcb049495380,
+        type: 2}
+      propertyPath: questCompleteIndicator
+      value: 
+      objectReference: {fileID: 407611172}
+    - target: {fileID: 114839277073976744, guid: 14700c740928a40b085cfcb049495380,
+        type: 2}
+      propertyPath: questCompleteText
+      value: 
+      objectReference: {fileID: 407611171}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14700c740928a40b085cfcb049495380, type: 2}
   m_IsPrefabParent: 0

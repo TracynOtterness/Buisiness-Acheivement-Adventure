@@ -32184,6 +32184,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 224977358077342470, guid: 15ce1f62161d34574baf4bbe1c8f5aa6,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -49.69995
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15ce1f62161d34574baf4bbe1c8f5aa6, type: 2}
   m_IsPrefabParent: 0
@@ -32753,7 +32758,7 @@ Prefab:
     - target: {fileID: 224499833493742526, guid: 2a9845e95a760486696714330f09b203,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0000688716
+      value: 0.000058513186
       objectReference: {fileID: 0}
     - target: {fileID: 224845427459851362, guid: 2a9845e95a760486696714330f09b203,
         type: 2}
@@ -33080,6 +33085,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 605756657}
     m_Modifications:
+    - target: {fileID: 114398028003285700, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: dialogue.sentences.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 114933457185325990, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
         type: 2}
       propertyPath: questInfo.sentences.Array.size
@@ -33189,6 +33199,12 @@ Prefab:
       value: Go talk to the Elder and learn about The Trials. He will be in the first
         house past the portal. Good luck!
       objectReference: {fileID: 0}
+    - target: {fileID: 114398028003285700, guid: 4f97719d3233a4fe1b1285bc6702a3c6,
+        type: 2}
+      propertyPath: dialogue.sentences.Array.data[4]
+      value: By the way, if you don't want to use the mouse to accept my quest, you
+        don't have to. Pressing the ENTER button on the keyboard also accepts it.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f97719d3233a4fe1b1285bc6702a3c6, type: 2}
   m_IsPrefabParent: 0
@@ -33210,7 +33226,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4265972505633790, guid: 5f5f2dc45d92a427e8cba94aa5f43935, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.9
+      value: 8.837
       objectReference: {fileID: 0}
     - target: {fileID: 4265972505633790, guid: 5f5f2dc45d92a427e8cba94aa5f43935, type: 2}
       propertyPath: m_LocalPosition.z

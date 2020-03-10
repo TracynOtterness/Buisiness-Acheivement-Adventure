@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestManager : MonoBehaviour {
 
@@ -11,6 +12,9 @@ public class QuestManager : MonoBehaviour {
 
     [SerializeField] GameObject questHolder;
     public static QuestManager questManager;
+
+    [SerializeField] GameObject questCompleteIndicator;
+    [SerializeField] Text questCompleteText;
 
     private void Awake()
     {
@@ -215,5 +219,19 @@ public class QuestManager : MonoBehaviour {
     public static void ResetFlags()
     {
         questFlags.Clear();
+    }
+
+    public static void CompleteQuestIndicator(string questName)
+    {
+        Animator a = questManager.questCompleteIndicator.GetComponent<Animator>();
+        a.SetBool("Show", true);
+        questManager.StartCoroutine(questManager.TakeBackQuestCompleteIndicator(a));
+        questManager.questCompleteText.text = questName;
+    }
+
+    public IEnumerator TakeBackQuestCompleteIndicator(Animator a)
+    {
+        yield return new WaitForSeconds(2f);
+        a.SetBool("Show", false);
     }
 }

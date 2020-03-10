@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{E1DDCD11-7E0A-5FDA-26BF-C84E8DE927E2}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/KBUI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BackToStartMenuButton.cs">
     <Files>
       <File FileName="Assets/Scripts/Player.cs" Line="185" Column="18" />
-      <File FileName="Assets/Scripts/GameSession.cs" Line="375" Column="76" />
-      <File FileName="Assets/Scripts/PauseMenu.cs" Line="326" Column="63" />
+      <File FileName="Assets/Scripts/GameSession.cs" Line="405" Column="12" />
+      <File FileName="Assets/Scripts/PauseMenu.cs" Line="422" Column="36" />
       <File FileName="Assets/Scripts/Portal.cs" />
       <File FileName="Assets/Scripts/KnowledgeByte.cs" />
       <File FileName="Assets/Scripts/InteractibilityIcon.cs" />
       <File FileName="Assets/Scripts/DialogueManager.cs" Line="19" Column="38" />
-      <File FileName="Assets/Scripts/QuestPrompt.cs" Line="34" Column="55" />
+      <File FileName="Assets/Scripts/QuestPrompt.cs" Line="55" Column="31" />
       <File FileName="Assets/Scripts/Gate.cs" />
       <File FileName="Assets/Scripts/SceneData.cs" />
       <File FileName="Assets/Scripts/MasterSceneData.cs" />
@@ -18,18 +18,20 @@
       <File FileName="Assets/Scripts/FastTravelLocation.cs" />
       <File FileName="Assets/Scripts/QuestDisplay.cs" />
       <File FileName="Assets/Scripts/Flag.cs" />
-      <File FileName="Assets/Scripts/SceneSwitcher.cs" />
-      <File FileName="Assets/Scripts/ScoreKeeper.cs" Line="20" Column="36" />
+      <File FileName="Assets/Scripts/SceneSwitcher.cs" Line="38" Column="43" />
+      <File FileName="Assets/Scripts/ScoreKeeper.cs" Line="50" Column="13" />
       <File FileName="Assets/Scripts/FastTravelUIButton.cs" />
       <File FileName="Assets/DestroyOnTouch.cs" />
       <File FileName="Assets/Scripts/Music.cs" Line="57" Column="41" />
       <File FileName="Assets/TempMusic.cs" />
-      <File FileName="Assets/Scripts/QuestFlagUpdater.cs" />
-      <File FileName="Assets/Scripts/QuestManager.cs" Line="217" Column="28" />
-      <File FileName="Assets/Scripts/Quest.cs" />
+      <File FileName="Assets/Scripts/QuestFlagUpdater.cs" Line="42" Column="1" />
+      <File FileName="Assets/Scripts/QuestManager.cs" Line="229" Column="57" />
+      <File FileName="Assets/Scripts/Quest.cs" Line="61" Column="44" />
       <File FileName="Assets/Scripts/SoundIndicator.cs" />
       <File FileName="Assets/Scripts/Coin.cs" />
-      <File FileName="Assets/Scripts/KBUI.cs" Line="56" Column="27" />
+      <File FileName="Assets/Scripts/KBUI.cs" Line="64" Column="26" />
+      <File FileName="Assets/Scripts/BackToStartMenuButton.cs" Line="17" Column="53" />
+      <File FileName="Assets/Scripts/EnemyMovement.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -37,7 +39,7 @@
           <Node name="TileVania" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="KBUI.cs" selected="True" />
+                <Node name="BackToStartMenuButton.cs" selected="True" />
               </Node>
             </Node>
           </Node>

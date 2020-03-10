@@ -161,6 +161,7 @@ public class GameSession : MonoBehaviour {
         UIFaderAnimator.SetBool("hiding", true);
         StopAllCoroutines();
         playerLives--;
+        ScoreKeeper.deaths++;
         if (playerLives >= 0)
         {
             StartCoroutine(FadeOut(2));
@@ -225,6 +226,7 @@ public class GameSession : MonoBehaviour {
     {
         FindObjectOfType<Player>().controllable = true;
         livesText.text = playerLives.ToString();
+        gameOverLivesText.text = "x0";
         while (deathMask.transform.localScale.x < 2)
         {
             Vector3 newScale = new Vector3(deathMask.transform.localScale.x + fadeOutScaleFactor * Time.deltaTime, deathMask.transform.localScale.y + fadeOutScaleFactor * Time.deltaTime, deathMask.transform.localScale.z);
@@ -400,7 +402,7 @@ public class GameSession : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    void ClearDontDestroyOnLoadForNextLevel()
+    public void ClearDontDestroyOnLoadForNextLevel()
     {
         Destroy(FastTravelReset.ftr.gameObject);
         Destroy(MasterSceneData.masterSceneData.gameObject);

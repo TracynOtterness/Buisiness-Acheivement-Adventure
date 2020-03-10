@@ -43,6 +43,8 @@ public class PauseMenu : MonoBehaviour {
     [SerializeField] Text livesText;
     [SerializeField] Text coinsText;
     [SerializeField] PopulateQuestGrid ftlGridPopulator;
+    [SerializeField] Scrollbar ftlScrollBar;
+    [SerializeField] Scrollbar questsScrollBar;
 
     static int[] KBLevelRequirements = { 0, 4, 8, 12, 15 };
     static float[] explorationLevelRequirements = { 0f, .25f, .5f, .75f, 1f };
@@ -100,6 +102,7 @@ public class PauseMenu : MonoBehaviour {
         ZoomedOutMapYCoord = FindObjectOfType<SceneDataHolder>().data.yCoordinate;
         PopulateFastTravelLocations();
         ftlGridPopulator.PopulateGrid();
+        ResetScrollViews();
     }
 
     private void PopulateQuestGrid()
@@ -412,6 +415,11 @@ public class PauseMenu : MonoBehaviour {
         kBUIsNumber = -1;
         objectivesTotal = 3;
         canAdvanceToNextLevel = false;
+    }
+    private void ResetScrollViews()
+    {
+        ftlScrollBar.value = 1f;
+        questsScrollBar.value = 1f;
     }
 
 }

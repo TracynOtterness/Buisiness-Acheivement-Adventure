@@ -9,12 +9,14 @@ public class ScoreKeeper : MonoBehaviour {
     public static int knowledgeBytesCollected;
     public static int checkpointsPassed;
     public static int sideQuestsCompleted;
+    public static int deaths;
 
     [SerializeField] GameObject scoreBoard;
     [SerializeField] Text kbText;
     [SerializeField] Text coinsText;
     [SerializeField] Text flagsText;
     [SerializeField] Text questsText;
+    [SerializeField] Text deathsText;
 
 
 	public static int currentLevel = 0;
@@ -45,6 +47,6 @@ public class ScoreKeeper : MonoBehaviour {
         coinsText.text = coinsCollected.ToString();
         flagsText.text = checkpointsPassed.ToString();
         questsText.text = sideQuestsCompleted.ToString();
-
+        deathsText.text = deaths.ToString();
     }
 }
